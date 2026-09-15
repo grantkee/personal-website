@@ -1,0 +1,52 @@
+I want to expand on my portfolio as the CTO with a list of accomplishments and projects I've worked on during my tenure. For each section, ask me questions to embelish on the accomplishments. Do not make up facts, instead ask me detailed questions so I can provide the necessary information to fill out content.
+- Governance-related projects for Telcoin Association
+     - Custom snapshot voting strategies to allow decentralized token holders to vote on Telcoin Association matters
+     - Custom uniswap v4 hooks to register users for governance
+     - DeFI router
+     - Solana PSV for token 2022
+     - Agentic Identity on-chain
+     - ZK privacy
+     - Author of several Telcoin Improvement Proposals that improve the platform and ecosystem
+     	- The largest and most recent is https://forum.telcoin.org/t/telip-the-tel-token-upgrade/847/44
+- Security assessments
+    - Organize and lead security assessments with some of the best firms in the industry
+     	- Cantina, Spearbit, Trail of Bits, Hacken, public competitions, and private auditors
+    - Prioritize deliverables based on security milestones despite public pressure to cut corners (rephrase this so it doesn't come across like I miss deadlines)
+- Scaling the team
+	- Scale the team from just myself to 8 full-time senior engineers
+		- Oversee teams of engineers including solidity, frontend, backend, protocol, and platform
+	- I also work with several contractors on specific tasks
+- Development (current projects my teams are working on under my leadership)
+	- Telcoin Network protocol
+		- Lead architect and developer
+		- Security assessments
+		- Feature roadmap and backlog priorities
+		- BFT consensus with EVM execution
+			- Agnostic consensus to support multiple execution environments that horizontally scale
+			- Parallel fee lanes to support quality-of-service on blockchain network
+		- Custom precompiles
+		- Stable tesnet released 2026
+			- Faucet, devops, security assessments, coordinated fork upgrades, bridge integration
+		- Mainnet launching Q4 2026
+	- Telcoin Omnichain Settlement Protocol
+		- Private network of nodes that monitor and sign transactions to support cross-chain transfers on EVM and Solana blockchains for stablecoins and other tokens that provide mint authority
+		- Requirement to support cross-chain bridging for regulated stablecoin where the issuer is required to be the mint/burn authority
+	- Block explorer
+		- Execution extension feature for Telcoin Network node to reindex blockchain data in real-time
+- Financial responsibilities
+	- Evaluate and assess potential partners for Telcoin Platform
+	- Meet with industry leaders
+- Oversee TEL Token upgrade
+	- Coordinated token migration across 3 EVM networks (Ethereum, Polygon PoS, and Base)
+	- Oversee all moving parts
+		- Development of the new token contract and migration contracts
+		- Coordinate with exchanges
+		- Third-party security assessments
+		- Deployment and marketing plan
+		- Instructional materials, FAQ site, public updates, written responses on public forum
+		- Logo and naming updates on block explorers, coin market data pages, and other industry players
+- Navigate and prioritize ever-changing industry
+	- Budget denominated in TEL
+	- Projects and competition constantly changing
+		- Axelar and LayerZero bridges for example
+	- ZK, agentic payments, stablecoins, validator security is always changing
