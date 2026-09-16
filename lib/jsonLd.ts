@@ -32,7 +32,6 @@ export function buildJsonLd(site: Site) {
         url: `${site.url}/`,
         jobTitle: site.jobTitle,
         description: site.description,
-        image: `${site.url}/avatar.webp`,
         sameAs: site.sameAs,
         knowsAbout: site.knowsAbout,
         worksFor: site.worksFor.map((org) => ({
