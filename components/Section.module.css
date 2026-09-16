@@ -1,0 +1,49 @@
+.section {
+  padding-top: var(--section-pad);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  gap: var(--gap);
+}
+
+.rail {
+  /* Sticky works here only because no ancestor is a scroll container. See the
+     overflow-x: clip note in globals.css -- `hidden` would break this. */
+  position: sticky;
+  top: var(--sticky-top);
+  align-self: start;
+  display: grid;
+  gap: 2px;
+  color: var(--text);
+}
+
+.numeral {
+  display: block;
+}
+
+.railLabel {
+  display: block;
+  color: var(--text-muted);
+}
+
+.body {
+  border-top: 2px solid var(--rule-strong);
+}
+
+/* Below lg the rail collapses: one static line, numeral and label side by side,
+   sitting directly above the content it labels. */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .rail {
+    position: static;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+}

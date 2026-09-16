@@ -1,0 +1,138 @@
+.hero {
+  padding-top: calc(var(--nav-h) + var(--nav-top) + 66px);
+}
+
+.indexRow {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  gap: var(--gap);
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: 14px;
+  color: var(--text-muted);
+}
+
+.main {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  gap: var(--gap);
+  padding: 40px 0 56px;
+}
+
+/* The artboard left this 156px cell empty. The avatar belongs in it: it is
+   already the column reserved for wayfinding, and nothing else competes. */
+.avatarCell {
+  align-self: start;
+}
+
+.avatar {
+  width: 100%;
+  height: auto;
+  /* Grayscale by default, matching the design system's rule for imagery. Full
+     colour is otherwise absent from this page, so an untreated colour portrait
+     would out-shout every section below it. Colour on hover is the page's one
+     moment of warmth, and it is what makes the grayscale read as deliberate
+     rather than as a broken image. */
+  filter: grayscale(1) contrast(1.08);
+  transition: filter 240ms linear;
+}
+
+.avatar:hover {
+  filter: none;
+}
+
+.name {
+  margin-bottom: 32px;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 2px solid var(--rule);
+  border-bottom: 2px solid var(--rule);
+}
+
+.cell {
+  padding: 20px;
+  border-left: 2px solid var(--rule);
+}
+
+.cell:nth-child(4n + 1) {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.cellLabel {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+}
+
+.cellBody {
+  color: var(--text-secondary);
+}
+
+.asOf {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-muted);
+}
+
+.lede {
+  margin-top: 40px;
+  max-width: 44ch;
+  text-wrap: pretty;
+}
+
+@media (max-width: 1023px) {
+  .indexRow,
+  .main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  /* Rail is gone, so the avatar sits above the name at a fixed size rather
+     than filling a column that no longer exists. */
+  .avatarCell {
+    width: 112px;
+  }
+
+  .main {
+    padding: 28px 0 48px;
+  }
+
+  /* Four cells, two columns: still no orphan row. */
+  .meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cell:nth-child(4n + 1) {
+    border-left: 2px solid var(--rule);
+    padding-left: 20px;
+  }
+
+  .cell:nth-child(2n + 1) {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  /* Wrapping into a second row needs a rule between the rows, or the grid
+     stops being visible -- which is the whole language of this design. */
+  .cell:nth-child(n + 3) {
+    border-top: 2px solid var(--rule);
+  }
+}
+
+@media (max-width: 559px) {
+  .meta {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cell:nth-child(n) {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .cell:nth-child(n + 2) {
+    border-top: 2px solid var(--rule);
+  }
+}

@@ -1,0 +1,30 @@
+.row {
+  display: grid;
+  grid-template-columns: var(--ledger-col) minmax(0, 1fr);
+  gap: var(--gap);
+  align-items: baseline;
+  padding: 22px 0;
+  border-bottom: 2px solid var(--rule);
+}
+
+.row:last-child {
+  border-bottom-color: var(--rule-strong);
+}
+
+.value {
+  color: var(--text);
+}
+
+.explanation {
+  color: var(--text-secondary);
+}
+
+/* Below sm the numeral stops sharing a baseline with the explanation and sits
+   above it. A 120px column against a 200px explanation was the point where
+   every row broke into three-word ribbons. */
+@media (max-width: 559px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+}

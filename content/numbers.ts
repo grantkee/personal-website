@@ -13,7 +13,7 @@ export const rows: StatRow[] = [
     value: 'Q4 2026',
     explanation:
       'Targeted mainnet launch for Telcoin Network. The testnet has been live through coordinated fork upgrades, a faucet, and bridge integration, and is producing blocks today.',
-    proof: { label: 'block explorer', href: 'https://telscan.io/' },
+    proof: { label: 'producing blocks today', href: 'https://telscan.io/' },
   },
   {
     value: 'GSMA',
@@ -28,7 +28,7 @@ export const rows: StatRow[] = [
   {
     value: '100B',
     explanation:
-      'Fixed TEL supply cap, preserved exactly through the upgrade from a two-decimal token to an eighteen-decimal one. Telcoin Network holds canonical supply, so no other network can mint without an equivalent amount locked on the Layer 1.',
+      'Fixed TEL supply cap, preserved exactly through the upgrade from a two-decimal token to an eighteen-decimal one. Telcoin Network holds canonical supply, so no other network can mint without an equivalent amount locked on the Layer 1. The cap is checkable at the contract.',
     proof: {
       label: 'checkable at the contract',
       href: 'https://etherscan.io/token/0x7E13B43065380aCdeC1c2d138c579cbBbafA0731',

@@ -98,10 +98,9 @@
   :root {
     --gutter: 32px;
     --section-pad: 60px;
-    /* Rail collapses to a static inline label. A 156px rail holding a two-word
-       heading spends 23% of a 768px viewport on wayfinding; it only earns its
-       keep when the content column is wide enough to lose your place in. */
-    --rail: 0px;
+    /* The rail collapses to a static inline label below this width. That is a
+       grid-template change, so it lives in Section.module.css, not here -- a
+       --rail of 0px would leave a zero-width column and crush the heading. */
   }
 }
 

@@ -1,0 +1,77 @@
+/* ---------------------------------------------------------------------------
+   This grid is what replaced the canvas runtime's alignGrids().
+
+   That function existed only because repeat(auto-fit, minmax(Npx, 1fr)) yields
+   an unknown column count, so "is this cell first in its row" could not be
+   known statically. It walked the DOM on every resize, compared offsetTop
+   values, and re-ran on document.fonts.ready.
+
+   Declaring the column count per breakpoint makes :nth-child() an exact
+   first-in-row test. What replaced ~40 lines of JS is correct on first paint,
+   needs no font-loading recompute, works with JavaScript disabled, and is
+   deterministic -- the offsetTop grouping was float-comparison-adjacent and
+   misbehaved under browser zoom.
+   ------------------------------------------------------------------------ */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 2px solid var(--rule-strong);
+}
+
+.card {
+  padding: 26px 24px;
+  border-bottom: 2px solid var(--rule);
+  border-left: 2px solid var(--rule);
+}
+
+/* First in row: no left rule, no left padding, so the column sits flush with
+   the section edge. */
+.card:nth-child(3n + 1) {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.title {
+  margin-bottom: 9px;
+}
+
+.body {
+  color: var(--text-muted);
+}
+
+.proof {
+  margin-top: 10px;
+}
+
+/* Six cards divide cleanly by three and by two, so this grid gets the full
+   3 -> 2 -> 1 without ever leaving an orphan row. */
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card:nth-child(3n + 1) {
+    border-left: 2px solid var(--rule);
+    padding-left: 24px;
+  }
+
+  .card:nth-child(2n + 1) {
+    border-left: 0;
+    padding-left: 0;
+  }
+}
+
+/* Single column: no cell is ever anything but first in its row, so no vertical
+   rule survives. Written at :nth-child(n) specificity so it outranks the
+   3n+1 / 2n+1 rules above without reaching for !important. */
+@media (max-width: 559px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card:nth-child(n) {
+    border-left: 0;
+    padding-left: 0;
+  }
+}

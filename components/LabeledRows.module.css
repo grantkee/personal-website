@@ -1,0 +1,46 @@
+.row {
+  display: grid;
+  grid-template-columns: var(--ledger-col) minmax(0, 1fr);
+  gap: var(--gap);
+  padding: 22px 0;
+  border-bottom: 2px solid var(--rule);
+}
+
+.row:last-child {
+  border-bottom-color: var(--rule-strong);
+}
+
+.intro {
+  margin: 0;
+  padding: 26px 0;
+  border-bottom: 2px solid var(--rule);
+  max-width: 52ch;
+  text-wrap: pretty;
+}
+
+.body {
+  color: var(--text-muted);
+}
+
+/* Flush left, one per line at narrow widths, wrapping into a row when there is
+   space. This is the row that turns the section from assertion into evidence. */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bodyAndLinks {
+  display: grid;
+  gap: 12px;
+}
+
+@media (max-width: 559px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+}

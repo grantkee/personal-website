@@ -1,0 +1,97 @@
+.article {
+  display: grid;
+  gap: 16px;
+  padding: 30px 0;
+  border-bottom: 2px solid var(--rule);
+}
+
+.article:last-child {
+  border-bottom-color: var(--rule-strong);
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.index {
+  color: var(--text-index);
+}
+
+.title {
+  flex: 1 1 340px;
+  text-wrap: pretty;
+}
+
+.kicker {
+  color: var(--text-muted);
+}
+
+.body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap);
+}
+
+.lead {
+  color: var(--text);
+  text-wrap: pretty;
+}
+
+.detail {
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag {
+  border: 2px solid var(--tag-border);
+  padding: 4px 8px;
+  color: var(--text-secondary);
+}
+
+/* Two columns of body copy need roughly 280px each to stop reading as a
+   ribbon. Below md the lead and detail stack, which also puts the
+   plain-language claim above the technical answer in reading order. */
+@media (max-width: 767px) {
+  .body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  /* The header stops being one baseline row. Index and kicker share a line,
+     the title takes its own -- a 28px title wedged between an 11px numeral and
+     a 10px kicker on one flex line wraps into a staircase. */
+  .header {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      'index kicker'
+      'title title';
+    gap: 8px 12px;
+    align-items: baseline;
+  }
+
+  .index {
+    grid-area: index;
+  }
+
+  .kicker {
+    grid-area: kicker;
+  }
+
+  .title {
+    grid-area: title;
+    flex: none;
+  }
+}
