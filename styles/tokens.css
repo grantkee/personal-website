@@ -1,5 +1,5 @@
 /* ============================================================================
-   Tokens — the Ledger artboard's values, promoted to custom properties.
+   Tokens - the Ledger artboard's values, promoted to custom properties.
 
    BREAKPOINTS. Custom properties cannot be used inside an @media condition, so
    these three numbers are written literally in every query in this codebase.
@@ -16,7 +16,7 @@
    COLOR. The palette is pure monochrome on purpose. The design system this is
    derived from carries an accent red (#ec3013); it appears zero times here and
    must stay that way. That includes the focus ring, which the design system
-   draws in accent — see globals.css.
+   draws in accent - see globals.css.
    ========================================================================= */
 
 :root {
@@ -38,11 +38,11 @@
   --text: var(--ink);                 /* 14.86:1 */
   --text-secondary: var(--n-800);     /*  9.04:1 */
 
-  /* Was #7d7979 at 3.85:1 — failed AA at the 10–11px sizes it is used at,
+  /* Was #7d7979 at 3.85:1 - failed AA at the 10–11px sizes it is used at,
      with no large-text exemption available. One step darker. */
   --text-muted: var(--n-700);         /*  5.83:1 */
 
-  /* Was #9b9797 at 2.59:1 — failed everything. These numerals are ordinal
+  /* Was #9b9797 at 2.59:1 - failed everything. These numerals are ordinal
      wayfinding, not decoration, so declaring them aria-hidden would not have
      been honest. They now match --text-muted and stay differentiated from the
      kickers beside them by weight and size (11px/700 against 10px/600). */

@@ -1,11 +1,11 @@
-# grantkee.com — local preview and checks.
+# grantkee.com - local preview and checks.
 #
 # The site is a static export: what GitHub Pages serves is literally the
 # contents of out/. So `make preview` builds and serves exactly that, and it
 # is the target to use for anything you actually want to trust.
 #
 # `make dev` exists for fast copy iteration only. next dev and the export
-# differ in metadata routes, metadataBase and file layout — which is precisely
+# differ in metadata routes, metadataBase and file layout - which is precisely
 # where this project's bugs have turned up. Never sign off on dev.
 #
 #   make preview            build, then serve out/ at localhost:3000
@@ -30,14 +30,14 @@ help: ## Show this help
 
 ## ---------------------------------------------------------------- preview --
 
-preview: build ## Build, then serve out/ — what Pages actually serves
+preview: build ## Build, then serve out/ - what Pages actually serves
 	@echo ""
 	@echo "  Serving the static export. This is the build Pages will publish."
 	@echo ""
 	@npx --yes serve out --listen $(PORT)
 
 serve: node_modules ## Serve the existing out/ without rebuilding
-	@test -d out || { echo "  out/ does not exist — run 'make build' first."; exit 1; }
+	@test -d out || { echo "  out/ does not exist - run 'make build' first."; exit 1; }
 	@npx --yes serve out --listen $(PORT)
 
 phone: build ## Serve on the LAN so you can open it on a real device
@@ -54,7 +54,7 @@ phone: build ## Serve on the LAN so you can open it on a real device
 	@echo ""
 	@npx --yes serve out --listen tcp://0.0.0.0:$(PORT)
 
-dev: node_modules ## Fast iteration only — NOT what Pages serves
+dev: node_modules ## Fast iteration only - NOT what Pages serves
 	@echo ""
 	@echo "  next dev differs from the export in metadata routes, metadataBase"
 	@echo "  and file layout. Verify with 'make preview' before believing it."
@@ -69,9 +69,9 @@ build: node_modules ## Build the static export into out/
 check: lint typecheck build ## Everything CI runs, in the same order
 	@echo ""
 	@test -s out/CNAME || { echo "  FAIL  out/CNAME is missing or empty"; exit 1; }
-	@test -f out/.nojekyll || { echo "  FAIL  out/.nojekyll is missing — Pages would drop _next/"; exit 1; }
+	@test -f out/.nojekyll || { echo "  FAIL  out/.nojekyll is missing - Pages would drop _next/"; exit 1; }
 	@if grep -rl 'localhost' out/sitemap.xml out/index.html out/robots.txt 2>/dev/null; then \
-		echo "  FAIL  localhost leaked into the build — check metadataBase"; exit 1; \
+		echo "  FAIL  localhost leaked into the build - check metadataBase"; exit 1; \
 	fi
 	@echo "  ok  CNAME -> $$(cat out/CNAME)"
 	@echo "  ok  .nojekyll present"

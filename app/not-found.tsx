@@ -4,7 +4,7 @@ import { content } from '@/content';
 import styles from './not-found.module.css';
 
 export const metadata: Metadata = {
-  title: `Not found — ${content.site.name}`,
+  title: `Not found - ${content.site.name}`,
   robots: { index: false, follow: true },
 };
 

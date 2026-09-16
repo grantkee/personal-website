@@ -2,7 +2,7 @@ import type { Hero } from './types';
 
 export const hero: Hero = {
   name: 'Grant Kee',
-  title: 'Chief Technology Officer — Telcoin Autonomous Operations',
+  title: 'Director of Blockchain - Telcoin',
 
   /* The best sentence in the corpus. Left verbatim from the artboard. */
   lede: 'A settlement layer secured by mobile network operators, a token migrated onto it, and the engineering organization that ships both.',
@@ -10,8 +10,8 @@ export const hero: Hero = {
   avatar: {
     src: '/avatar.webp',
     alt: 'Grant Kee',
-    width: 320,
-    height: 320,
+    width: 640,
+    height: 640,
   },
 
   /* Four cells. Status leads: it answers the question the audience arrived
@@ -24,7 +24,7 @@ export const hero: Hero = {
     },
     {
       label: 'Mandate',
-      body: 'Development, deployment, security, and ongoing operation of the Telcoin technology ecosystem.',
+      body: 'Technology strategy and execution for the Telcoin Platform: development, deployment, security, and ongoing operation.',
     },
     {
       label: 'Stack owned',
@@ -32,7 +32,7 @@ export const hero: Hero = {
     },
     {
       label: 'Reports to',
-      body: 'Council members of the nonprofit Telcoin Association, and a global community meeting held every two weeks.',
+      body: 'Council members of the nonprofit Telcoin Association, and a global community meeting held every two weeks. Holds a council seat representing validators and sits on the Treasury Council.',
     },
   ],
 };

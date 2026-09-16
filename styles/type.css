@@ -1,5 +1,5 @@
 /* ============================================================================
-   Type ramp — composable classes, each bundling size + weight + tracking +
+   Type ramp - composable classes, each bundling size + weight + tracking +
    leading. The split rule for this codebase:
 
        type.css owns type.   *.module.css owns layout.
@@ -8,7 +8,7 @@
    module. Nothing sets font-size in a module.
 
    FLUID SIZES. Every ramp below pairs a rem term with a vw term. The artboard
-   used vw alone — which meant that under browser zoom, where the viewport
+   used vw alone - which meant that under browser zoom, where the viewport
    measured in CSS pixels shrinks, display sizes shrank by exactly as much as
    the zoom magnified them. Net physical size: unchanged. A low-vision reader
    zooming to 200% got larger body copy and headlines that did not move, which

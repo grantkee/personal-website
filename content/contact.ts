@@ -28,5 +28,5 @@ export const links: ContactLink[] = [
   },
 ];
 
-export const colophon = 'Grant Kee — Chief Technology Officer, Telcoin Autonomous Operations';
+export const colophon = 'Grant Kee - Director of Blockchain, Telcoin';
 export const backToTop = 'Back to top ↑';

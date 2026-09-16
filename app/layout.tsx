@@ -25,7 +25,7 @@ export const metadata: Metadata = {
      LinkedIn drops the card entirely, and localhost:3000 leaks into the
      production sitemap. */
   metadataBase: new URL(site.url),
-  title: `${site.name} — ${site.jobTitle}, ${site.organization}`,
+  title: `${site.name} - ${site.jobTitle}, ${site.organization}`,
   description: site.description,
   applicationName: site.name,
   authors: [{ name: site.name, url: site.url }],
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     firstName: 'Grant',
     lastName: 'Kee',
     username: 'grantkee',
-    title: `${site.name} — ${site.jobTitle}, ${site.organization}`,
+    title: `${site.name} - ${site.jobTitle}, ${site.organization}`,
     description: site.description,
     url: site.url,
     siteName: site.domain,
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${site.name} — ${site.jobTitle}, ${site.organization}`,
+    title: `${site.name} - ${site.jobTitle}, ${site.organization}`,
     description: site.description,
     images: [site.ogImage],
   },

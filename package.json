@@ -2,7 +2,7 @@
   "name": "grantkee-com",
   "version": "1.0.0",
   "private": true,
-  "description": "grantkee.com — static site for Grant Kee, CTO, Telcoin Autonomous Operations",
+  "description": "grantkee.com - static site for Grant Kee, Director of Blockchain, Telcoin",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

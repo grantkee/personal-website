@@ -115,8 +115,10 @@ export interface Site {
   name: string;
   jobTitle: string;
   organization: string;
-  organizationShort: string;
-  parentOrganization: string;
+  /** Structured-data employers only; never rendered as copy. */
+  worksFor: { name: string; parentOrganization?: string }[];
+  /** Structured data only. */
+  memberOf: string;
   description: string;
   ogImage: string;
   /** Entity-resolution signal for JSON-LD `sameAs`. */

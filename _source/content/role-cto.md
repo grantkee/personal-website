@@ -1,4 +1,4 @@
-### Chief Technology Officer — Telcoin Autonomous Operations
+### Chief Technology Officer - Telcoin Autonomous Operations
 
 - **Lead technology strategy and execution** for Telcoin Autonomous Operations (TAO), the operational organization overseen by the nonprofit Telcoin Association, with responsibility for the development, deployment, security, and ongoing operation of the Telcoin technology ecosystem.
 

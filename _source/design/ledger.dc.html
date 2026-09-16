@@ -1,358 +1,2055 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-html { scroll-behavior: smooth; background: #f3f2f2; }
-body { margin: 0; background: #f3f2f2; color: #201e1d; font-family: "Archivo", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-a { color: #201e1d; text-decoration: none; }
-a:hover { color: #605d5d; }
-::selection { background: #201e1d; color: #f3f2f2; }
-</style>
-</helmet>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="./support.js"></script>
+	</head>
+	<body>
+		<x-dc>
+			<helmet>
+				<link rel="preconnect" href="https://fonts.googleapis.com" />
+				<link
+					rel="preconnect"
+					href="https://fonts.gstatic.com"
+					crossorigin
+				/>
+				<link
+					href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap"
+					rel="stylesheet"
+				/>
+				<style>
+					html {
+						scroll-behavior: smooth;
+						background: #f3f2f2;
+					}
+					body {
+						margin: 0;
+						background: #f3f2f2;
+						color: #201e1d;
+						font-family: "Archivo", system-ui, sans-serif;
+						-webkit-font-smoothing: antialiased;
+					}
+					a {
+						color: #201e1d;
+						text-decoration: none;
+					}
+					a:hover {
+						color: #605d5d;
+					}
+					::selection {
+						background: #201e1d;
+						color: #f3f2f2;
+					}
+				</style>
+			</helmet>
 
-<div style="background: #f3f2f2; color: #201e1d; font-family: Archivo, system-ui, sans-serif; min-height: 100vh; overflow-x: hidden">
+			<div
+				style="
+					background: #f3f2f2;
+					color: #201e1d;
+					font-family: Archivo, system-ui, sans-serif;
+					min-height: 100vh;
+					overflow-x: hidden;
+				"
+			>
+				<nav
+					style="
+						position: fixed;
+						top: 20px;
+						left: 50%;
+						transform: translateX(-50%);
+						z-index: 100;
+						display: flex;
+						align-items: center;
+						gap: 28px;
+						background: #201e1d;
+						padding: 0 20px 0 18px;
+						height: 46px;
+						max-width: calc(100vw - 32px);
+						box-shadow: 0 3px 10px rgba(45, 43, 43, 0.16);
+					"
+				>
+					<a
+						href="#overview"
+						style="
+							display: flex;
+							align-items: center;
+							gap: 9px;
+							color: #f3f2f2;
+							font-weight: 800;
+							font-size: 13px;
+							letter-spacing: 0.14em;
+							padding-right: 20px;
+							border-right: 2px solid #444141;
+							height: 46px;
+						"
+						>GK<span
+							style="
+								width: 6px;
+								height: 6px;
+								background: #f3f2f2;
+								display: block;
+							"
+						></span
+					></a>
+					<div
+						style="
+							display: flex;
+							align-items: center;
+							gap: 26px;
+							overflow-x: auto;
+							scrollbar-width: none;
+						"
+					>
+						<a
+							data-navlink
+							href="#numbers"
+							style="
+								color: #9b9797;
+								font-size: 10.5px;
+								font-weight: 600;
+								letter-spacing: 0.18em;
+								text-transform: uppercase;
+								white-space: nowrap;
+								flex: 0 0 auto;
+								transition: color 180ms linear;
+							"
+							style-hover="color: #f3f2f2"
+							>At a glance</a
+						>
+						<a
+							data-navlink
+							href="#work"
+							style="
+								color: #9b9797;
+								font-size: 10.5px;
+								font-weight: 600;
+								letter-spacing: 0.18em;
+								text-transform: uppercase;
+								white-space: nowrap;
+								flex: 0 0 auto;
+								transition: color 180ms linear;
+							"
+							style-hover="color: #f3f2f2"
+							>Selected work</a
+						>
+						<a
+							data-navlink
+							href="#source"
+							style="
+								color: #9b9797;
+								font-size: 10.5px;
+								font-weight: 600;
+								letter-spacing: 0.18em;
+								text-transform: uppercase;
+								white-space: nowrap;
+								flex: 0 0 auto;
+								transition: color 180ms linear;
+							"
+							style-hover="color: #f3f2f2"
+							>Open source</a
+						>
+						<a
+							data-navlink
+							href="#now"
+							style="
+								color: #9b9797;
+								font-size: 10.5px;
+								font-weight: 600;
+								letter-spacing: 0.18em;
+								text-transform: uppercase;
+								white-space: nowrap;
+								flex: 0 0 auto;
+								transition: color 180ms linear;
+							"
+							style-hover="color: #f3f2f2"
+							>Now</a
+						>
+						<a
+							data-navlink
+							href="#contact"
+							style="
+								color: #9b9797;
+								font-size: 10.5px;
+								font-weight: 600;
+								letter-spacing: 0.18em;
+								text-transform: uppercase;
+								white-space: nowrap;
+								flex: 0 0 auto;
+								transition: color 180ms linear;
+							"
+							style-hover="color: #f3f2f2"
+							>Contact</a
+						>
+					</div>
+				</nav>
 
-  <nav style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 100; display: flex; align-items: center; gap: 28px; background: #201e1d; padding: 0 20px 0 18px; height: 46px; max-width: calc(100vw - 32px); box-shadow: 0 3px 10px rgba(45,43,43,0.16)">
-    <a href="#overview" style="display: flex; align-items: center; gap: 9px; color: #f3f2f2; font-weight: 800; font-size: 13px; letter-spacing: 0.14em; padding-right: 20px; border-right: 2px solid #444141; height: 46px">GK<span style="width: 6px; height: 6px; background: #f3f2f2; display: block"></span></a>
-    <div style="display: flex; align-items: center; gap: 26px; overflow-x: auto; scrollbar-width: none">
-      <a data-navlink href="#numbers" style="color: #9b9797; font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; flex: 0 0 auto; transition: color 180ms linear" style-hover="color: #f3f2f2">At a glance</a>
-      <a data-navlink href="#work" style="color: #9b9797; font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; flex: 0 0 auto; transition: color 180ms linear" style-hover="color: #f3f2f2">Selected work</a>
-      <a data-navlink href="#source" style="color: #9b9797; font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; flex: 0 0 auto; transition: color 180ms linear" style-hover="color: #f3f2f2">Open source</a>
-      <a data-navlink href="#now" style="color: #9b9797; font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; flex: 0 0 auto; transition: color 180ms linear" style-hover="color: #f3f2f2">Now</a>
-      <a data-navlink href="#contact" style="color: #9b9797; font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; flex: 0 0 auto; transition: color 180ms linear" style-hover="color: #f3f2f2">Contact</a>
-    </div>
-  </nav>
+				<header
+					id="overview"
+					data-screen-label="Hero"
+					style="
+						scroll-margin-top: 80px;
+						background: #201e1d;
+						color: #f3f2f2;
+						padding: 132px 0 0;
+					"
+				>
+					<div
+						style="
+							max-width: 1240px;
+							margin: 0 auto;
+							padding: 0 40px;
+						"
+					>
+						<div
+							style="
+								display: grid;
+								grid-template-columns: 156px minmax(0, 1fr);
+								gap: 32px;
+								border-bottom: 2px solid #444141;
+								padding-bottom: 14px;
+							"
+						>
+							<span
+								style="
+									font-size: 10px;
+									font-weight: 600;
+									letter-spacing: 0.2em;
+									text-transform: uppercase;
+									color: #7d7979;
+								"
+								>00 / Index</span
+							>
+							<span
+								style="
+									font-size: 10px;
+									font-weight: 600;
+									letter-spacing: 0.2em;
+									text-transform: uppercase;
+									color: #7d7979;
+								"
+								>Chief Technology Officer - Telcoin Autonomous
+								Operations</span
+							>
+						</div>
+						<div
+							style="
+								display: grid;
+								grid-template-columns: 156px minmax(0, 1fr);
+								gap: 32px;
+								padding: 40px 0 56px;
+							"
+						>
+							<div></div>
+							<div>
+								<h1
+									style="
+										margin: 0 0 32px;
+										font-size: clamp(48px, 8vw, 108px);
+										font-weight: 800;
+										letter-spacing: -0.04em;
+										line-height: 0.9;
+									"
+								>
+									Grant Kee
+								</h1>
+								<div
+									data-rule="dark"
+									data-pad="20px"
+									style="
+										display: grid;
+										grid-template-columns: repeat(
+											auto-fit,
+											minmax(230px, 1fr)
+										);
+										border-top: 2px solid #444141;
+										border-bottom: 2px solid #444141;
+									"
+								>
+									<div style="padding: 20px 20px 20px 0">
+										<div
+											style="
+												font-size: 10px;
+												font-weight: 600;
+												letter-spacing: 0.2em;
+												text-transform: uppercase;
+												color: #7d7979;
+												margin-bottom: 8px;
+											"
+										>
+											Mandate
+										</div>
+										<p
+											style="
+												margin: 0;
+												font-size: 14.5px;
+												line-height: 1.5;
+												color: #d7d3d3;
+											"
+										>
+											Development, deployment, security,
+											and ongoing operation of the Telcoin
+											technology ecosystem.
+										</p>
+									</div>
+									<div style="padding: 20px 20px 20px 0">
+										<div
+											style="
+												font-size: 10px;
+												font-weight: 600;
+												letter-spacing: 0.2em;
+												text-transform: uppercase;
+												color: #7d7979;
+												margin-bottom: 8px;
+											"
+										>
+											Stack owned
+										</div>
+										<p
+											style="
+												margin: 0;
+												font-size: 14.5px;
+												line-height: 1.5;
+												color: #d7d3d3;
+											"
+										>
+											Application network, blockchain
+											infrastructure, on-chain contracts,
+											off-chain rewards, developer
+											integrations.
+										</p>
+									</div>
+									<div style="padding: 20px 20px 20px 0">
+										<div
+											style="
+												font-size: 10px;
+												font-weight: 600;
+												letter-spacing: 0.2em;
+												text-transform: uppercase;
+												color: #7d7979;
+												margin-bottom: 8px;
+											"
+										>
+											Reports to
+										</div>
+										<p
+											style="
+												margin: 0;
+												font-size: 14.5px;
+												line-height: 1.5;
+												color: #d7d3d3;
+											"
+										>
+											Council members of the nonprofit
+											Telcoin Association, and a global
+											community meeting, bi-weekly.
+										</p>
+									</div>
+								</div>
+								<p
+									style="
+										margin: 40px 0 0;
+										font-size: clamp(18px, 1.9vw, 24px);
+										line-height: 1.42;
+										letter-spacing: -0.014em;
+										max-width: 44ch;
+										text-wrap: pretty;
+									"
+								>
+									A settlement layer secured by mobile network
+									operators, a token migrated onto it, and the
+									engineering organization that ships both.
+								</p>
+							</div>
+						</div>
+					</div>
+				</header>
 
-  <header id="overview" data-screen-label="Hero" style="scroll-margin-top: 80px; background: #201e1d; color: #f3f2f2; padding: 132px 0 0">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 0 40px">
-      <div style="display: grid; grid-template-columns: 156px minmax(0, 1fr); gap: 32px; border-bottom: 2px solid #444141; padding-bottom: 14px">
-        <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #7d7979">00 / Index</span>
-        <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #7d7979">Chief Technology Officer — Telcoin Autonomous Operations</span>
-      </div>
-      <div style="display: grid; grid-template-columns: 156px minmax(0, 1fr); gap: 32px; padding: 40px 0 56px">
-        <div></div>
-        <div>
-          <h1 style="margin: 0 0 32px; font-size: clamp(48px, 8vw, 108px); font-weight: 800; letter-spacing: -0.04em; line-height: 0.9">Grant Kee</h1>
-          <div data-rule="dark" data-pad="20px" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); border-top: 2px solid #444141; border-bottom: 2px solid #444141">
-            <div style="padding: 20px 20px 20px 0">
-              <div style="font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #7d7979; margin-bottom: 8px">Mandate</div>
-              <p style="margin: 0; font-size: 14.5px; line-height: 1.5; color: #d7d3d3">Development, deployment, security, and ongoing operation of the Telcoin technology ecosystem.</p>
-            </div>
-            <div style="padding: 20px 20px 20px 0">
-              <div style="font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #7d7979; margin-bottom: 8px">Stack owned</div>
-              <p style="margin: 0; font-size: 14.5px; line-height: 1.5; color: #d7d3d3">Application network, blockchain infrastructure, on-chain contracts, off-chain rewards, developer integrations.</p>
-            </div>
-            <div style="padding: 20px 20px 20px 0">
-              <div style="font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #7d7979; margin-bottom: 8px">Reports to</div>
-              <p style="margin: 0; font-size: 14.5px; line-height: 1.5; color: #d7d3d3">Council members of the nonprofit Telcoin Association, and a global community meeting, bi-weekly.</p>
-            </div>
-          </div>
-          <p style="margin: 40px 0 0; font-size: clamp(18px, 1.9vw, 24px); line-height: 1.42; letter-spacing: -0.014em; max-width: 44ch; text-wrap: pretty">A settlement layer secured by mobile network operators, a token migrated onto it, and the engineering organization that ships both.</p>
-        </div>
-      </div>
-    </div>
-  </header>
+				<section
+					id="numbers"
+					data-screen-label="At a glance"
+					style="
+						scroll-margin-top: 80px;
+						max-width: 1240px;
+						margin: 0 auto;
+						padding: 72px 40px 0;
+					"
+				>
+					<div
+						style="
+							display: grid;
+							grid-template-columns: 156px minmax(0, 1fr);
+							gap: 32px;
+						"
+					>
+						<h2
+							style="
+								margin: 0;
+								font-size: 11px;
+								font-weight: 700;
+								letter-spacing: 0.2em;
+								text-transform: uppercase;
+								position: sticky;
+								top: 92px;
+								align-self: start;
+							"
+						>
+							01<br /><span style="color: #7d7979"
+								>At a glance</span
+							>
+						</h2>
+						<div style="border-top: 2px solid #201e1d">
+							<div
+								data-reveal
+								style="
+									display: grid;
+									grid-template-columns: 148px minmax(0, 1fr);
+									gap: 32px;
+									align-items: baseline;
+									padding: 22px 0;
+									border-bottom: 2px solid #d7d3d3;
+								"
+							>
+								<span
+									style="
+										font-size: clamp(26px, 3vw, 36px);
+										font-weight: 800;
+										letter-spacing: -0.035em;
+										line-height: 1;
+									"
+									>$180K</span
+								>
+								<p
+									style="
+										margin: 0;
+										font-size: 15px;
+										line-height: 1.5;
+										color: #444141;
+									"
+								>
+									Prize funding in a four-week open security
+									research competition run against the
+									protocol and its supporting infrastructure.
+								</p>
+							</div>
+							<div
+								data-reveal
+								style="
+									display: grid;
+									grid-template-columns: 148px minmax(0, 1fr);
+									gap: 32px;
+									align-items: baseline;
+									padding: 22px 0;
+									border-bottom: 2px solid #d7d3d3;
+								"
+							>
+								<span
+									style="
+										font-size: clamp(26px, 3vw, 36px);
+										font-weight: 800;
+										letter-spacing: -0.035em;
+										line-height: 1;
+									"
+									>100B</span
+								>
+								<p
+									style="
+										margin: 0;
+										font-size: 15px;
+										line-height: 1.5;
+										color: #444141;
+									"
+								>
+									Fixed TEL supply cap, enforced and
+									independently verifiable across every
+									supported network.
+								</p>
+							</div>
+							<div
+								data-reveal
+								style="
+									display: grid;
+									grid-template-columns: 148px minmax(0, 1fr);
+									gap: 32px;
+									align-items: baseline;
+									padding: 22px 0;
+									border-bottom: 2px solid #d7d3d3;
+								"
+							>
+								<span
+									style="
+										font-size: clamp(26px, 3vw, 36px);
+										font-weight: 800;
+										letter-spacing: -0.035em;
+										line-height: 1;
+									"
+									>Zero</span
+								>
+								<p
+									style="
+										margin: 0;
+										font-size: 15px;
+										line-height: 1.5;
+										color: #444141;
+									"
+								>
+									Single-key deployments. Production contracts
+									ship exclusively through multisig safes
+									under distributed hardware custody.
+								</p>
+							</div>
+							<div
+								data-reveal
+								style="
+									display: grid;
+									grid-template-columns: 148px minmax(0, 1fr);
+									gap: 32px;
+									align-items: baseline;
+									padding: 22px 0;
+									border-bottom: 2px solid #d7d3d3;
+								"
+							>
+								<span
+									style="
+										font-size: clamp(26px, 3vw, 36px);
+										font-weight: 800;
+										letter-spacing: -0.035em;
+										line-height: 1;
+									"
+									>2 → 1</span
+								>
+								<p
+									style="
+										margin: 0;
+										font-size: 15px;
+										line-height: 1.5;
+										color: #444141;
+									"
+								>
+									Fragmented ERC-20 deployments on Ethereum
+									and Polygon consolidated into one
+									standardized, chain-independent token
+									architecture.
+								</p>
+							</div>
+							<div
+								data-reveal
+								style="
+									display: grid;
+									grid-template-columns: 148px minmax(0, 1fr);
+									gap: 32px;
+									align-items: baseline;
+									padding: 22px 0;
+									border-bottom: 2px solid #201e1d;
+								"
+							>
+								<span
+									style="
+										font-size: clamp(26px, 3vw, 36px);
+										font-weight: 800;
+										letter-spacing: -0.035em;
+										line-height: 1;
+									"
+									>GSMA</span
+								>
+								<p
+									style="
+										margin: 0;
+										font-size: 15px;
+										line-height: 1.5;
+										color: #444141;
+									"
+								>
+									Mobile network operators - and only mobile
+									network operators - form the validator set
+									of the Layer 1 under development.
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
 
-  <section id="numbers" data-screen-label="At a glance" style="scroll-margin-top: 80px; max-width: 1240px; margin: 0 auto; padding: 72px 40px 0">
-    <div style="display: grid; grid-template-columns: 156px minmax(0, 1fr); gap: 32px">
-      <h2 style="margin: 0; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; position: sticky; top: 92px; align-self: start">01<br><span style="color: #7d7979">At a glance</span></h2>
-      <div style="border-top: 2px solid #201e1d">
-        <div data-reveal style="display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: 32px; align-items: baseline; padding: 22px 0; border-bottom: 2px solid #d7d3d3">
-          <span style="font-size: clamp(26px, 3vw, 36px); font-weight: 800; letter-spacing: -0.035em; line-height: 1">$180K</span>
-          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #444141">Prize funding in a four-week open security research competition run against the protocol and its supporting infrastructure.</p>
-        </div>
-        <div data-reveal style="display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: 32px; align-items: baseline; padding: 22px 0; border-bottom: 2px solid #d7d3d3">
-          <span style="font-size: clamp(26px, 3vw, 36px); font-weight: 800; letter-spacing: -0.035em; line-height: 1">100B</span>
-          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #444141">Fixed TEL supply cap, enforced and independently verifiable across every supported network.</p>
-        </div>
-        <div data-reveal style="display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: 32px; align-items: baseline; padding: 22px 0; border-bottom: 2px solid #d7d3d3">
-          <span style="font-size: clamp(26px, 3vw, 36px); font-weight: 800; letter-spacing: -0.035em; line-height: 1">Zero</span>
-          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #444141">Single-key deployments. Production contracts ship exclusively through multisig safes under distributed hardware custody.</p>
-        </div>
-        <div data-reveal style="display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: 32px; align-items: baseline; padding: 22px 0; border-bottom: 2px solid #d7d3d3">
-          <span style="font-size: clamp(26px, 3vw, 36px); font-weight: 800; letter-spacing: -0.035em; line-height: 1">2 → 1</span>
-          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #444141">Fragmented ERC-20 deployments on Ethereum and Polygon consolidated into one standardized, chain-independent token architecture.</p>
-        </div>
-        <div data-reveal style="display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: 32px; align-items: baseline; padding: 22px 0; border-bottom: 2px solid #201e1d">
-          <span style="font-size: clamp(26px, 3vw, 36px); font-weight: 800; letter-spacing: -0.035em; line-height: 1">GSMA</span>
-          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #444141">Mobile network operators — and only mobile network operators — form the validator set of the Layer 1 under development.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+				<section
+					id="work"
+					data-screen-label="Selected work"
+					style="
+						scroll-margin-top: 80px;
+						max-width: 1240px;
+						margin: 0 auto;
+						padding: 72px 40px 0;
+					"
+				>
+					<div
+						style="
+							display: grid;
+							grid-template-columns: 156px minmax(0, 1fr);
+							gap: 32px;
+						"
+					>
+						<h2
+							style="
+								margin: 0;
+								font-size: 11px;
+								font-weight: 700;
+								letter-spacing: 0.2em;
+								text-transform: uppercase;
+								position: sticky;
+								top: 92px;
+								align-self: start;
+							"
+						>
+							02<br /><span style="color: #7d7979"
+								>Selected work</span
+							>
+						</h2>
+						<div style="border-top: 2px solid #201e1d">
+							<article
+								data-reveal
+								style="
+									padding: 30px 0;
+									border-bottom: 2px solid #d7d3d3;
+									display: grid;
+									gap: 16px;
+								"
+							>
+								<div
+									style="
+										display: flex;
+										align-items: baseline;
+										gap: 16px;
+										flex-wrap: wrap;
+									"
+								>
+									<span
+										style="
+											font-size: 11px;
+											font-weight: 700;
+											color: #9b9797;
+											letter-spacing: 0.1em;
+										"
+										>01</span
+									>
+									<h3
+										style="
+											margin: 0;
+											font-size: clamp(21px, 2.1vw, 28px);
+											font-weight: 800;
+											letter-spacing: -0.025em;
+											line-height: 1.12;
+											flex: 1 1 340px;
+											text-wrap: pretty;
+										"
+									>
+										Migrate a live ERC20 token as the native
+										token on its own Layer 1
+									</h3>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.16em;
+											text-transform: uppercase;
+											color: #7d7979;
+										"
+										>TEL upgrade &amp; migration</span
+									>
+								</div>
+								<div
+									style="
+										display: grid;
+										grid-template-columns: repeat(
+											auto-fit,
+											minmax(280px, 1fr)
+										);
+										gap: 32px;
+									"
+								>
+									<p
+										style="
+											margin: 0;
+											font-size: 15.5px;
+											line-height: 1.5;
+											color: #201e1d;
+											font-weight: 500;
+											text-wrap: pretty;
+										"
+									>
+										Architected and executed the migration
+										end to end - governance, exchanges,
+										liquidity, deployment - without breaking
+										market continuity.
+									</p>
+									<p
+										style="
+											margin: 0;
+											font-size: 14px;
+											line-height: 1.6;
+											color: #605d5d;
+											text-wrap: pretty;
+										"
+									>
+										A non-standard two-decimal ERC-20 split
+										across Ethereum and Polygon became one
+										standardized token with a fixed 100B
+										cap, deployed via CREATE3 to a mined
+										vanity address under Safe multisig
+										custody. Authored the TelIP and TGIP
+										proposals that carried it through
+										decentralized governance; built the
+										native bridge adapter that lets the L1
+										verify external TEL.
+									</p>
+								</div>
+								<div
+									style="
+										display: flex;
+										flex-wrap: wrap;
+										gap: 8px;
+									"
+								>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>CREATE3</span
+									>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>Safe multisig</span
+									>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>TelIP · TGIP</span
+									>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>Native bridge</span
+									>
+								</div>
+							</article>
 
-  <section id="work" data-screen-label="Selected work" style="scroll-margin-top: 80px; max-width: 1240px; margin: 0 auto; padding: 72px 40px 0">
-    <div style="display: grid; grid-template-columns: 156px minmax(0, 1fr); gap: 32px">
-      <h2 style="margin: 0; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; position: sticky; top: 92px; align-self: start">02<br><span style="color: #7d7979">Selected work</span></h2>
-      <div style="border-top: 2px solid #201e1d">
+							<article
+								data-reveal
+								style="
+									padding: 30px 0;
+									border-bottom: 2px solid #d7d3d3;
+									display: grid;
+									gap: 16px;
+								"
+							>
+								<div
+									style="
+										display: flex;
+										align-items: baseline;
+										gap: 16px;
+										flex-wrap: wrap;
+									"
+								>
+									<span
+										style="
+											font-size: 11px;
+											font-weight: 700;
+											color: #9b9797;
+											letter-spacing: 0.1em;
+										"
+										>02</span
+									>
+									<h3
+										style="
+											margin: 0;
+											font-size: clamp(21px, 2.1vw, 28px);
+											font-weight: 800;
+											letter-spacing: -0.025em;
+											line-height: 1.12;
+											flex: 1 1 340px;
+											text-wrap: pretty;
+										"
+									>
+										Built a blockchain secured by mobile
+										carriers
+									</h3>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.16em;
+											text-transform: uppercase;
+											color: #7d7979;
+										"
+										>Telcoin Network</span
+									>
+								</div>
+								<div
+									style="
+										display: grid;
+										grid-template-columns: repeat(
+											auto-fit,
+											minmax(280px, 1fr)
+										);
+										gap: 32px;
+									"
+								>
+									<p
+										style="
+											margin: 0;
+											font-size: 15.5px;
+											line-height: 1.5;
+											color: #201e1d;
+											font-weight: 500;
+											text-wrap: pretty;
+										"
+									>
+										Leads development of an EVM-compatible
+										Layer 1 whose validator set is drawn
+										exclusively from GSMA mobile network
+										operators.
+									</p>
+									<p
+										style="
+											margin: 0;
+											font-size: 14px;
+											line-height: 1.6;
+											color: #605d5d;
+											text-wrap: pretty;
+										"
+									>
+										Directs protocol engineering across
+										consensus, execution, networking, data
+										availability, and validator
+										infrastructure, plus the interfaces
+										binding protocol to platform. Owns
+										provider strategy - evaluating,
+										onboarding, and maintaining the
+										infrastructure partners standing the
+										network up - and the explorer and
+										observability tooling that keeps it
+										legible.
+									</p>
+								</div>
+								<div
+									style="
+										display: flex;
+										flex-wrap: wrap;
+										gap: 8px;
+									"
+								>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>Consensus</span
+									>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>Rust</span
+									>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>Validator ops</span
+									>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>GSMA operators</span
+									>
+								</div>
+							</article>
 
-        <article data-reveal style="padding: 30px 0; border-bottom: 2px solid #d7d3d3; display: grid; gap: 16px">
-          <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap">
-            <span style="font-size: 11px; font-weight: 700; color: #9b9797; letter-spacing: 0.1em">01</span>
-            <h3 style="margin: 0; font-size: clamp(21px, 2.1vw, 28px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.12; flex: 1 1 340px; text-wrap: pretty">Moved a live token onto its own Layer 1</h3>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #7d7979">TEL upgrade &amp; migration</span>
-          </div>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px">
-            <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #201e1d; font-weight: 500; text-wrap: pretty">Architected and executed the migration end to end — governance, exchanges, liquidity, deployment — without breaking market continuity.</p>
-            <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #605d5d; text-wrap: pretty">A non-standard two-decimal ERC-20 split across Ethereum and Polygon became one standardized token with a fixed 100B cap, deployed via CREATE3 to a mined vanity address under Safe multisig custody. Authored the TelIP and TGIP proposals that carried it through decentralized governance; built the native bridge adapter that lets the L1 verify external TEL.</p>
-          </div>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px">
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">CREATE3</span>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">Safe multisig</span>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">TelIP · TGIP</span>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">Native bridge</span>
-          </div>
-        </article>
+							<article
+								data-reveal
+								style="
+									padding: 30px 0;
+									border-bottom: 2px solid #d7d3d3;
+									display: grid;
+									gap: 16px;
+								"
+							>
+								<div
+									style="
+										display: flex;
+										align-items: baseline;
+										gap: 16px;
+										flex-wrap: wrap;
+									"
+								>
+									<span
+										style="
+											font-size: 11px;
+											font-weight: 700;
+											color: #9b9797;
+											letter-spacing: 0.1em;
+										"
+										>03</span
+									>
+									<h3
+										style="
+											margin: 0;
+											font-size: clamp(21px, 2.1vw, 28px);
+											font-weight: 800;
+											letter-spacing: -0.025em;
+											line-height: 1.12;
+											flex: 1 1 340px;
+											text-wrap: pretty;
+										"
+									>
+										Took single hardware keys out of the
+										critical path
+									</h3>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.16em;
+											text-transform: uppercase;
+											color: #7d7979;
+										"
+										>Deployment architecture</span
+									>
+								</div>
+								<div
+									style="
+										display: grid;
+										grid-template-columns: repeat(
+											auto-fit,
+											minmax(280px, 1fr)
+										);
+										gap: 32px;
+									"
+								>
+									<p
+										style="
+											margin: 0;
+											font-size: 15.5px;
+											line-height: 1.5;
+											color: #201e1d;
+											font-weight: 500;
+											text-wrap: pretty;
+										"
+									>
+										Designed a multisignature deployment
+										model so no individual key holder can
+										unilaterally control production
+										contracts or infrastructure.
+									</p>
+									<p
+										style="
+											margin: 0;
+											font-size: 14px;
+											line-height: 1.6;
+											color: #605d5d;
+											text-wrap: pretty;
+										"
+									>
+										Led engineers to a standardized workflow
+										on Safe multisig wallets, Safe Utils,
+										and CREATE3: deterministic addresses
+										across EVM networks, ownership held by
+										the safe from the first transaction.
+										Thresholds and signer distribution
+										designed for organizational control and
+										continuity; tooling built along the way
+										contributed back to Safe Utils.
+									</p>
+								</div>
+								<div
+									style="
+										display: flex;
+										flex-wrap: wrap;
+										gap: 8px;
+									"
+								>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>Safe Utils</span
+									>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>Hardware custody</span
+									>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>Deterministic deploys</span
+									>
+								</div>
+							</article>
 
-        <article data-reveal style="padding: 30px 0; border-bottom: 2px solid #d7d3d3; display: grid; gap: 16px">
-          <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap">
-            <span style="font-size: 11px; font-weight: 700; color: #9b9797; letter-spacing: 0.1em">02</span>
-            <h3 style="margin: 0; font-size: clamp(21px, 2.1vw, 28px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.12; flex: 1 1 340px; text-wrap: pretty">Built a blockchain secured by mobile carriers</h3>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #7d7979">Telcoin Network</span>
-          </div>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px">
-            <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #201e1d; font-weight: 500; text-wrap: pretty">Leads development of an EVM-compatible Layer 1 whose validator set is drawn exclusively from GSMA mobile network operators.</p>
-            <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #605d5d; text-wrap: pretty">Directs protocol engineering across consensus, execution, networking, data availability, and validator infrastructure, plus the interfaces binding protocol to platform. Owns provider strategy — evaluating, onboarding, and maintaining the infrastructure partners standing the network up — and the explorer and observability tooling that keeps it legible.</p>
-          </div>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px">
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">Consensus</span>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">Rust</span>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">Validator ops</span>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">GSMA operators</span>
-          </div>
-        </article>
+							<article
+								data-reveal
+								style="
+									padding: 30px 0;
+									border-bottom: 2px solid #d7d3d3;
+									display: grid;
+									gap: 16px;
+								"
+							>
+								<div
+									style="
+										display: flex;
+										align-items: baseline;
+										gap: 16px;
+										flex-wrap: wrap;
+									"
+								>
+									<span
+										style="
+											font-size: 11px;
+											font-weight: 700;
+											color: #9b9797;
+											letter-spacing: 0.1em;
+										"
+										>04</span
+									>
+									<h3
+										style="
+											margin: 0;
+											font-size: clamp(21px, 2.1vw, 28px);
+											font-weight: 800;
+											letter-spacing: -0.025em;
+											line-height: 1.12;
+											flex: 1 1 340px;
+											text-wrap: pretty;
+										"
+									>
+										Made adversaries part of the process
+									</h3>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.16em;
+											text-transform: uppercase;
+											color: #7d7979;
+										"
+										>Security program</span
+									>
+								</div>
+								<div
+									style="
+										display: grid;
+										grid-template-columns: repeat(
+											auto-fit,
+											minmax(280px, 1fr)
+										);
+										gap: 32px;
+									"
+								>
+									<p
+										style="
+											margin: 0;
+											font-size: 15.5px;
+											line-height: 1.5;
+											color: #201e1d;
+											font-weight: 500;
+											text-wrap: pretty;
+										"
+									>
+										Owns vulnerability discovery:
+										competitive research, third-party
+										audits, internal review, and continuous
+										monitoring.
+									</p>
+									<p
+										style="
+											margin: 0;
+											font-size: 14px;
+											line-height: 1.6;
+											color: #605d5d;
+											text-wrap: pretty;
+										"
+									>
+										Coordinated a four-week open competition
+										with more than $180,000 in prizes and
+										runs the audit and remediation cycle
+										gating production. Architected emergency
+										on-chain controls - monitoring, pause
+										and unpause paths that preserve
+										governance - and authored the
+										risk-assessment, incident-response, and
+										protocol "code red" procedures behind
+										them.
+									</p>
+								</div>
+								<div
+									style="
+										display: flex;
+										flex-wrap: wrap;
+										gap: 8px;
+									"
+								>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>Audits</span
+									>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>Incident response</span
+									>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>Emergency controls</span
+									>
+								</div>
+							</article>
 
-        <article data-reveal style="padding: 30px 0; border-bottom: 2px solid #d7d3d3; display: grid; gap: 16px">
-          <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap">
-            <span style="font-size: 11px; font-weight: 700; color: #9b9797; letter-spacing: 0.1em">03</span>
-            <h3 style="margin: 0; font-size: clamp(21px, 2.1vw, 28px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.12; flex: 1 1 340px; text-wrap: pretty">Took single hardware keys out of the critical path</h3>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #7d7979">Deployment architecture</span>
-          </div>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px">
-            <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #201e1d; font-weight: 500; text-wrap: pretty">Designed a multisignature deployment model so no individual key holder can unilaterally control production contracts or infrastructure.</p>
-            <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #605d5d; text-wrap: pretty">Led engineers to a standardized workflow on Safe multisig wallets, Safe Utils, and CREATE3: deterministic addresses across EVM networks, ownership held by the safe from the first transaction. Thresholds and signer distribution designed for organizational control and continuity; tooling built along the way contributed back to Safe Utils.</p>
-          </div>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px">
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">Safe Utils</span>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">Hardware custody</span>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">Deterministic deploys</span>
-          </div>
-        </article>
+							<article
+								data-reveal
+								style="
+									padding: 30px 0;
+									border-bottom: 2px solid #201e1d;
+									display: grid;
+									gap: 16px;
+								"
+							>
+								<div
+									style="
+										display: flex;
+										align-items: baseline;
+										gap: 16px;
+										flex-wrap: wrap;
+									"
+								>
+									<span
+										style="
+											font-size: 11px;
+											font-weight: 700;
+											color: #9b9797;
+											letter-spacing: 0.1em;
+										"
+										>05</span
+									>
+									<h3
+										style="
+											margin: 0;
+											font-size: clamp(21px, 2.1vw, 28px);
+											font-weight: 800;
+											letter-spacing: -0.025em;
+											line-height: 1.12;
+											flex: 1 1 340px;
+											text-wrap: pretty;
+										"
+									>
+										Wired incentives and governance together
+									</h3>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.16em;
+											text-transform: uppercase;
+											color: #7d7979;
+										"
+										>TelX &amp; interoperability</span
+									>
+								</div>
+								<div
+									style="
+										display: grid;
+										grid-template-columns: repeat(
+											auto-fit,
+											minmax(280px, 1fr)
+										);
+										gap: 32px;
+									"
+								>
+									<p
+										style="
+											margin: 0;
+											font-size: 15.5px;
+											line-height: 1.5;
+											color: #201e1d;
+											font-weight: 500;
+											text-wrap: pretty;
+										"
+									>
+										Oversees the ecosystem's DeFi layer and
+										the on-chain infrastructure establishing
+										who may participate in governance.
+									</p>
+									<p
+										style="
+											margin: 0;
+											font-size: 14px;
+											line-height: 1.6;
+											color: #605d5d;
+											text-wrap: pretty;
+										"
+									>
+										Liquidity-provider reward distribution,
+										custom pool deployment, participation
+										monitoring, and eligibility systems -
+										paired with NFT-based subscription
+										mechanisms that confer governance
+										participation rights. Cross-chain reach
+										runs through Axelar and LayerZero
+										integrations designed at the
+										architecture level.
+									</p>
+								</div>
+								<div
+									style="
+										display: flex;
+										flex-wrap: wrap;
+										gap: 8px;
+									"
+								>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>TelX</span
+									>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>Axelar</span
+									>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>LayerZero</span
+									>
+									<span
+										style="
+											font-size: 10px;
+											font-weight: 600;
+											letter-spacing: 0.12em;
+											text-transform: uppercase;
+											border: 2px solid #d7d3d3;
+											padding: 4px 8px;
+											color: #444141;
+										"
+										>Governance NFTs</span
+									>
+								</div>
+							</article>
+						</div>
+					</div>
+				</section>
 
-        <article data-reveal style="padding: 30px 0; border-bottom: 2px solid #d7d3d3; display: grid; gap: 16px">
-          <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap">
-            <span style="font-size: 11px; font-weight: 700; color: #9b9797; letter-spacing: 0.1em">04</span>
-            <h3 style="margin: 0; font-size: clamp(21px, 2.1vw, 28px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.12; flex: 1 1 340px; text-wrap: pretty">Made adversaries part of the process</h3>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #7d7979">Security program</span>
-          </div>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px">
-            <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #201e1d; font-weight: 500; text-wrap: pretty">Owns vulnerability discovery: competitive research, third-party audits, internal review, and continuous monitoring.</p>
-            <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #605d5d; text-wrap: pretty">Coordinated a four-week open competition with more than $180,000 in prizes and runs the audit and remediation cycle gating production. Architected emergency on-chain controls — monitoring, pause and unpause paths that preserve governance — and authored the risk-assessment, incident-response, and protocol "code red" procedures behind them.</p>
-          </div>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px">
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">Audits</span>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">Incident response</span>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">Emergency controls</span>
-          </div>
-        </article>
+				<section
+					id="source"
+					data-screen-label="Open source"
+					style="
+						scroll-margin-top: 80px;
+						max-width: 1240px;
+						margin: 0 auto;
+						padding: 72px 40px 0;
+					"
+				>
+					<div
+						style="
+							display: grid;
+							grid-template-columns: 156px minmax(0, 1fr);
+							gap: 32px;
+						"
+					>
+						<h2
+							style="
+								margin: 0;
+								font-size: 11px;
+								font-weight: 700;
+								letter-spacing: 0.2em;
+								text-transform: uppercase;
+								position: sticky;
+								top: 92px;
+								align-self: start;
+							"
+						>
+							03<br /><span style="color: #7d7979"
+								>Open source</span
+							>
+						</h2>
+						<div style="border-top: 2px solid #201e1d">
+							<p
+								data-reveal
+								style="
+									margin: 0;
+									padding: 26px 0;
+									border-bottom: 2px solid #d7d3d3;
+									font-size: clamp(17px, 1.7vw, 21px);
+									line-height: 1.45;
+									letter-spacing: -0.012em;
+									max-width: 52ch;
+									text-wrap: pretty;
+								"
+							>
+								Owns the GitHub engineering infrastructure of
+								the Telcoin Association - public repositories
+								under MIT and Apache 2.0, governed for
+								collaboration, redistribution, and downstream
+								adoption.
+							</p>
+							<div
+								data-reveal
+								style="
+									display: grid;
+									grid-template-columns: 148px minmax(0, 1fr);
+									gap: 32px;
+									padding: 22px 0;
+									border-bottom: 2px solid #d7d3d3;
+								"
+							>
+								<span
+									style="
+										font-size: 11px;
+										font-weight: 700;
+										letter-spacing: 0.14em;
+										text-transform: uppercase;
+									"
+									>Governance</span
+								>
+								<p
+									style="
+										margin: 0;
+										font-size: 14.5px;
+										line-height: 1.55;
+										color: #605d5d;
+									"
+								>
+									Issue triage and pull-request lifecycle,
+									branch and development policy, contributor
+									standards, README and SECURITY.md
+									documentation.
+								</p>
+							</div>
+							<div
+								data-reveal
+								style="
+									display: grid;
+									grid-template-columns: 148px minmax(0, 1fr);
+									gap: 32px;
+									padding: 22px 0;
+									border-bottom: 2px solid #d7d3d3;
+								"
+							>
+								<span
+									style="
+										font-size: 11px;
+										font-weight: 700;
+										letter-spacing: 0.14em;
+										text-transform: uppercase;
+									"
+									>Access</span
+								>
+								<p
+									style="
+										margin: 0;
+										font-size: 14.5px;
+										line-height: 1.55;
+										color: #605d5d;
+									"
+								>
+									Organization membership, repository
+									permissions, tokens, authentication, and
+									least-privilege access to critical
+									development infrastructure.
+								</p>
+							</div>
+							<div
+								data-reveal
+								style="
+									display: grid;
+									grid-template-columns: 148px minmax(0, 1fr);
+									gap: 32px;
+									padding: 22px 0;
+									border-bottom: 2px solid #d7d3d3;
+								"
+							>
+								<span
+									style="
+										font-size: 11px;
+										font-weight: 700;
+										letter-spacing: 0.14em;
+										text-transform: uppercase;
+									"
+									>Quality gates</span
+								>
+								<p
+									style="
+										margin: 0;
+										font-size: 14.5px;
+										line-height: 1.55;
+										color: #605d5d;
+									"
+								>
+									GitHub Actions CI/CD, automated testing,
+									build and validation pipelines, code review,
+									and vulnerability management inside the
+									SDLC.
+								</p>
+							</div>
+							<div
+								data-reveal
+								style="
+									display: grid;
+									grid-template-columns: 148px minmax(0, 1fr);
+									gap: 32px;
+									padding: 22px 0;
+									border-bottom: 2px solid #201e1d;
+								"
+							>
+								<span
+									style="
+										font-size: 11px;
+										font-weight: 700;
+										letter-spacing: 0.14em;
+										text-transform: uppercase;
+									"
+									>Contribution</span
+								>
+								<p
+									style="
+										margin: 0;
+										font-size: 14.5px;
+										line-height: 1.55;
+										color: #605d5d;
+									"
+								>
+									Deployment utilities developed for internal
+									requirements extended back into the Safe
+									Utils project for the wider ecosystem.
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
 
-        <article data-reveal style="padding: 30px 0; border-bottom: 2px solid #201e1d; display: grid; gap: 16px">
-          <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap">
-            <span style="font-size: 11px; font-weight: 700; color: #9b9797; letter-spacing: 0.1em">05</span>
-            <h3 style="margin: 0; font-size: clamp(21px, 2.1vw, 28px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.12; flex: 1 1 340px; text-wrap: pretty">Wired incentives and governance together</h3>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #7d7979">TelX &amp; interoperability</span>
-          </div>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px">
-            <p style="margin: 0; font-size: 15.5px; line-height: 1.5; color: #201e1d; font-weight: 500; text-wrap: pretty">Oversees the ecosystem's DeFi layer and the on-chain infrastructure establishing who may participate in governance.</p>
-            <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #605d5d; text-wrap: pretty">Liquidity-provider reward distribution, custom pool deployment, participation monitoring, and eligibility systems — paired with NFT-based subscription mechanisms that confer governance participation rights. Cross-chain reach runs through Axelar and LayerZero integrations designed at the architecture level.</p>
-          </div>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px">
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">TelX</span>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">Axelar</span>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">LayerZero</span>
-            <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid #d7d3d3; padding: 4px 8px; color: #444141">Governance NFTs</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+				<section
+					id="now"
+					data-screen-label="Now"
+					style="
+						scroll-margin-top: 80px;
+						max-width: 1240px;
+						margin: 0 auto;
+						padding: 72px 40px 0;
+					"
+				>
+					<div
+						style="
+							display: grid;
+							grid-template-columns: 156px minmax(0, 1fr);
+							gap: 32px;
+						"
+					>
+						<h2
+							style="
+								margin: 0;
+								font-size: 11px;
+								font-weight: 700;
+								letter-spacing: 0.2em;
+								text-transform: uppercase;
+								position: sticky;
+								top: 92px;
+								align-self: start;
+							"
+						>
+							04<br /><span style="color: #7d7979">Now</span>
+						</h2>
+						<div
+							data-rule="light"
+							data-pad="24px"
+							style="
+								border-top: 2px solid #201e1d;
+								display: grid;
+								grid-template-columns: repeat(
+									auto-fit,
+									minmax(250px, 1fr)
+								);
+							"
+						>
+							<div
+								data-reveal
+								style="
+									padding: 26px 24px 26px 0;
+									border-bottom: 2px solid #d7d3d3;
+								"
+							>
+								<h3
+									style="
+										margin: 0 0 9px;
+										font-size: 14.5px;
+										font-weight: 700;
+										letter-spacing: -0.01em;
+									"
+								>
+									Production readiness
+								</h3>
+								<p
+									style="
+										margin: 0;
+										font-size: 14px;
+										line-height: 1.55;
+										color: #605d5d;
+									"
+								>
+									Carrying the network from architecture
+									through audit, remediation, and launch -
+									where protocol decisions become operational
+									ones.
+								</p>
+							</div>
+							<div
+								data-reveal
+								style="
+									padding: 26px 24px 26px 0;
+									border-bottom: 2px solid #d7d3d3;
+								"
+							>
+								<h3
+									style="
+										margin: 0 0 9px;
+										font-size: 14.5px;
+										font-weight: 700;
+										letter-spacing: -0.01em;
+									"
+								>
+									Engineering organization
+								</h3>
+								<p
+									style="
+										margin: 0;
+										font-size: 14px;
+										line-height: 1.55;
+										color: #605d5d;
+									"
+								>
+									Recruiting and directing senior engineers
+									across Solidity, Rust and async Rust,
+									Solana, protocol, backend, and front-end -
+									hands-on alongside them.
+								</p>
+							</div>
+							<div
+								data-reveal
+								style="
+									padding: 26px 24px 26px 0;
+									border-bottom: 2px solid #d7d3d3;
+								"
+							>
+								<h3
+									style="
+										margin: 0 0 9px;
+										font-size: 14.5px;
+										font-weight: 700;
+										letter-spacing: -0.01em;
+									"
+								>
+									AI engineering standards
+								</h3>
+								<p
+									style="
+										margin: 0;
+										font-size: 14px;
+										line-height: 1.55;
+										color: #605d5d;
+									"
+								>
+									Organizational practice for AI-assisted
+									development, security analysis, and
+									technical operations - where it is trusted,
+									and where it is not.
+								</p>
+							</div>
+							<div
+								data-reveal
+								style="
+									padding: 26px 24px 26px 0;
+									border-bottom: 2px solid #d7d3d3;
+								"
+							>
+								<h3
+									style="
+										margin: 0 0 9px;
+										font-size: 14.5px;
+										font-weight: 700;
+										letter-spacing: -0.01em;
+									"
+								>
+									Ecosystem adoption
+								</h3>
+								<p
+									style="
+										margin: 0;
+										font-size: 14px;
+										line-height: 1.55;
+										color: #605d5d;
+									"
+								>
+									Technical go-to-market with partners and
+									business development, and onboarding mobile
+									developers and applications onto the
+									platform.
+								</p>
+							</div>
+							<div
+								data-reveal
+								style="
+									padding: 26px 24px 26px 0;
+									border-bottom: 2px solid #d7d3d3;
+								"
+							>
+								<h3
+									style="
+										margin: 0 0 9px;
+										font-size: 14.5px;
+										font-weight: 700;
+										letter-spacing: -0.01em;
+									"
+								>
+									Reporting in public
+								</h3>
+								<p
+									style="
+										margin: 0;
+										font-size: 14px;
+										line-height: 1.55;
+										color: #605d5d;
+									"
+								>
+									Bi-weekly protocol updates to a global
+									community meeting, plus continuous written
+									and verbal reporting to Association council
+									members.
+								</p>
+							</div>
+							<div
+								data-reveal
+								style="
+									padding: 26px 24px 26px 0;
+									border-bottom: 2px solid #d7d3d3;
+								"
+							>
+								<h3
+									style="
+										margin: 0 0 9px;
+										font-size: 14.5px;
+										font-weight: 700;
+										letter-spacing: -0.01em;
+									"
+								>
+									Interoperability
+								</h3>
+								<p
+									style="
+										margin: 0;
+										font-size: 14px;
+										line-height: 1.55;
+										color: #605d5d;
+									"
+								>
+									Extending cross-chain architecture and
+									partnerships so the ecosystem connects to
+									external networks without widening its trust
+									surface.
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
 
-  <section id="source" data-screen-label="Open source" style="scroll-margin-top: 80px; max-width: 1240px; margin: 0 auto; padding: 72px 40px 0">
-    <div style="display: grid; grid-template-columns: 156px minmax(0, 1fr); gap: 32px">
-      <h2 style="margin: 0; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; position: sticky; top: 92px; align-self: start">03<br><span style="color: #7d7979">Open source</span></h2>
-      <div style="border-top: 2px solid #201e1d">
-        <p data-reveal style="margin: 0; padding: 26px 0; border-bottom: 2px solid #d7d3d3; font-size: clamp(17px, 1.7vw, 21px); line-height: 1.45; letter-spacing: -0.012em; max-width: 52ch; text-wrap: pretty">Owns the GitHub engineering infrastructure of the Telcoin Association — public repositories under MIT and Apache 2.0, governed for collaboration, redistribution, and downstream adoption.</p>
-        <div data-reveal style="display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: 32px; padding: 22px 0; border-bottom: 2px solid #d7d3d3">
-          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase">Governance</span>
-          <p style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #605d5d">Issue triage and pull-request lifecycle, branch and development policy, contributor standards, README and SECURITY.md documentation.</p>
-        </div>
-        <div data-reveal style="display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: 32px; padding: 22px 0; border-bottom: 2px solid #d7d3d3">
-          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase">Access</span>
-          <p style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #605d5d">Organization membership, repository permissions, tokens, authentication, and least-privilege access to critical development infrastructure.</p>
-        </div>
-        <div data-reveal style="display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: 32px; padding: 22px 0; border-bottom: 2px solid #d7d3d3">
-          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase">Quality gates</span>
-          <p style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #605d5d">GitHub Actions CI/CD, automated testing, build and validation pipelines, code review, and vulnerability management inside the SDLC.</p>
-        </div>
-        <div data-reveal style="display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: 32px; padding: 22px 0; border-bottom: 2px solid #201e1d">
-          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase">Contribution</span>
-          <p style="margin: 0; font-size: 14.5px; line-height: 1.55; color: #605d5d">Deployment utilities developed for internal requirements extended back into the Safe Utils project for the wider ecosystem.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+				<section
+					id="contact"
+					data-screen-label="Contact"
+					style="
+						scroll-margin-top: 80px;
+						background: #201e1d;
+						color: #f3f2f2;
+						margin-top: 96px;
+					"
+				>
+					<div
+						style="
+							max-width: 1240px;
+							margin: 0 auto;
+							padding: 80px 40px 72px;
+						"
+					>
+						<div
+							style="
+								display: grid;
+								grid-template-columns: 156px minmax(0, 1fr);
+								gap: 32px;
+							"
+						>
+							<h2
+								style="
+									margin: 0;
+									font-size: 11px;
+									font-weight: 700;
+									letter-spacing: 0.2em;
+									text-transform: uppercase;
+									color: #f3f2f2;
+								"
+							>
+								05<br /><span style="color: #7d7979"
+									>Contact</span
+								>
+							</h2>
+							<div>
+								<h3
+									style="
+										margin: 0 0 40px;
+										font-size: clamp(30px, 4.6vw, 60px);
+										font-weight: 800;
+										letter-spacing: -0.035em;
+										line-height: 1.03;
+										max-width: 22ch;
+										text-wrap: pretty;
+									"
+								>
+									Open to board and investor conversations.
+								</h3>
+								<div
+									data-rule="dark"
+									data-pad="24px"
+									style="
+										display: grid;
+										grid-template-columns: repeat(
+											auto-fit,
+											minmax(210px, 1fr)
+										);
+										border-top: 2px solid #444141;
+									"
+								>
+									<a
+										href="mailto:hello@grantkee.com"
+										style="
+											color: #f3f2f2;
+											padding: 24px 24px 24px 0;
+											display: grid;
+											gap: 7px;
+											transition: background 180ms linear;
+										"
+										style-hover="background: #2d2b2b"
+									>
+										<span
+											style="
+												font-size: 10px;
+												font-weight: 600;
+												letter-spacing: 0.2em;
+												text-transform: uppercase;
+												color: #7d7979;
+											"
+											>Email</span
+										>
+										<span
+											style="
+												font-size: 16.5px;
+												font-weight: 600;
+												letter-spacing: -0.01em;
+											"
+											>hello@grantkee.com</span
+										>
+									</a>
+									<a
+										href="https://github.com"
+										style="
+											color: #f3f2f2;
+											padding: 24px 24px 24px 0;
+											display: grid;
+											gap: 7px;
+											transition: background 180ms linear;
+										"
+										style-hover="background: #2d2b2b"
+									>
+										<span
+											style="
+												font-size: 10px;
+												font-weight: 600;
+												letter-spacing: 0.2em;
+												text-transform: uppercase;
+												color: #7d7979;
+											"
+											>GitHub</span
+										>
+										<span
+											style="
+												font-size: 16.5px;
+												font-weight: 600;
+												letter-spacing: -0.01em;
+											"
+											>github.com/grantkee</span
+										>
+									</a>
+									<a
+										href="https://linkedin.com"
+										style="
+											color: #f3f2f2;
+											padding: 24px 24px 24px 0;
+											display: grid;
+											gap: 7px;
+											transition: background 180ms linear;
+										"
+										style-hover="background: #2d2b2b"
+									>
+										<span
+											style="
+												font-size: 10px;
+												font-weight: 600;
+												letter-spacing: 0.2em;
+												text-transform: uppercase;
+												color: #7d7979;
+											"
+											>LinkedIn</span
+										>
+										<span
+											style="
+												font-size: 16.5px;
+												font-weight: 600;
+												letter-spacing: -0.01em;
+											"
+											>in/grantkee</span
+										>
+									</a>
+								</div>
+								<div
+									style="
+										display: flex;
+										flex-wrap: wrap;
+										gap: 20px;
+										justify-content: space-between;
+										align-items: baseline;
+										border-top: 2px solid #444141;
+										padding-top: 20px;
+									"
+								>
+									<span
+										style="
+											font-size: 11.5px;
+											letter-spacing: 0.04em;
+											color: #7d7979;
+										"
+										>Grant Kee - Chief Technology Officer,
+										Telcoin Autonomous Operations</span
+									>
+									<a
+										href="#overview"
+										style="
+											font-size: 10.5px;
+											font-weight: 600;
+											letter-spacing: 0.18em;
+											text-transform: uppercase;
+											color: #9b9797;
+										"
+										style-hover="color: #f3f2f2"
+										>Back to top ↑</a
+									>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</x-dc>
+		<script
+			type="text/x-dc"
+			data-dc-script
+			data-props='{"reveal":{"editor":"boolean","default":true,"tsType":"boolean","section":"Behavior"},"stickyRail":{"editor":"boolean","default":true,"tsType":"boolean","section":"Behavior"},"density":{"editor":"enum","options":["compact","standard","open"],"default":"standard","tsType":"string","section":"Layout"}}'
+		>
+			class Component extends DCLogic {
+			  applyTweaks() {
+			    const dens = this.props.density ?? 'standard';
+			    const secPad = { compact: 48, standard: 72, open: 104 }[dens] ?? 72;
+			    const rowPad = { compact: 22, standard: 30, open: 40 }[dens] ?? 30;
+			    document.querySelectorAll('section[data-screen-label]').forEach((s) => {
+			      if (s.id === 'contact') return;
+			      s.style.paddingTop = secPad + 'px';
+			    });
+			    document.querySelectorAll('#work article').forEach((a) => { a.style.paddingTop = rowPad + 'px'; a.style.paddingBottom = rowPad + 'px'; });
+			    const sticky = this.props.stickyRail ?? true;
+			    document.querySelectorAll('section[data-screen-label] > div > h2').forEach((h) => {
+			      h.style.position = sticky ? 'sticky' : 'static';
+			    });
+			  }
+			  alignGrids() {
+			    document.querySelectorAll('[data-rule]').forEach((g) => {
+			      const color = g.dataset.rule === 'dark' ? '#444141' : '#d7d3d3';
+			      const pad = g.dataset.pad || '24px';
+			      const seen = new Set();
+			      Array.from(g.children).forEach((k) => {
+			        const top = Math.round(k.offsetTop);
+			        const first = !seen.has(top);
+			        seen.add(top);
+			        k.style.borderLeft = first ? '0' : '2px solid ' + color;
+			        k.style.paddingLeft = first ? '0px' : pad;
+			      });
+			    });
+			  }
+			  componentDidUpdate() { this.applyTweaks(); this.alignGrids(); }
+			  componentDidMount() {
+			    this.applyTweaks();
+			    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches || (this.props.reveal ?? true) === false;
+			    if (!reduce) {
+			      const items = document.querySelectorAll('[data-reveal]');
+			      items.forEach((el) => {
+			        el.style.opacity = '0';
+			        el.style.transform = 'translateY(12px)';
+			        el.style.transition = 'opacity 560ms cubic-bezier(.22,.61,.36,1), transform 560ms cubic-bezier(.22,.61,.36,1)';
+			      });
+			      const io = new IntersectionObserver((entries) => {
+			        entries.forEach((e) => {
+			          if (!e.isIntersecting) return;
+			          e.target.style.opacity = '1';
+			          e.target.style.transform = 'none';
+			          io.unobserve(e.target);
+			        });
+			      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
+			      items.forEach((el) => io.observe(el));
+			      this._io = io;
+			    }
 
-  <section id="now" data-screen-label="Now" style="scroll-margin-top: 80px; max-width: 1240px; margin: 0 auto; padding: 72px 40px 0">
-    <div style="display: grid; grid-template-columns: 156px minmax(0, 1fr); gap: 32px">
-      <h2 style="margin: 0; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; position: sticky; top: 92px; align-self: start">04<br><span style="color: #7d7979">Now</span></h2>
-      <div data-rule="light" data-pad="24px" style="border-top: 2px solid #201e1d; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))">
-        <div data-reveal style="padding: 26px 24px 26px 0; border-bottom: 2px solid #d7d3d3">
-          <h3 style="margin: 0 0 9px; font-size: 14.5px; font-weight: 700; letter-spacing: -0.01em">Production readiness</h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #605d5d">Carrying the network from architecture through audit, remediation, and launch — where protocol decisions become operational ones.</p>
-        </div>
-        <div data-reveal style="padding: 26px 24px 26px 0; border-bottom: 2px solid #d7d3d3">
-          <h3 style="margin: 0 0 9px; font-size: 14.5px; font-weight: 700; letter-spacing: -0.01em">Engineering organization</h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #605d5d">Recruiting and directing senior engineers across Solidity, Rust and async Rust, Solana, protocol, backend, and front-end — hands-on alongside them.</p>
-        </div>
-        <div data-reveal style="padding: 26px 24px 26px 0; border-bottom: 2px solid #d7d3d3">
-          <h3 style="margin: 0 0 9px; font-size: 14.5px; font-weight: 700; letter-spacing: -0.01em">AI engineering standards</h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #605d5d">Organizational practice for AI-assisted development, security analysis, and technical operations — where it is trusted, and where it is not.</p>
-        </div>
-        <div data-reveal style="padding: 26px 24px 26px 0; border-bottom: 2px solid #d7d3d3">
-          <h3 style="margin: 0 0 9px; font-size: 14.5px; font-weight: 700; letter-spacing: -0.01em">Ecosystem adoption</h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #605d5d">Technical go-to-market with partners and business development, and onboarding mobile developers and applications onto the platform.</p>
-        </div>
-        <div data-reveal style="padding: 26px 24px 26px 0; border-bottom: 2px solid #d7d3d3">
-          <h3 style="margin: 0 0 9px; font-size: 14.5px; font-weight: 700; letter-spacing: -0.01em">Reporting in public</h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #605d5d">Bi-weekly protocol updates to a global community meeting, plus continuous written and verbal reporting to Association council members.</p>
-        </div>
-        <div data-reveal style="padding: 26px 24px 26px 0; border-bottom: 2px solid #d7d3d3">
-          <h3 style="margin: 0 0 9px; font-size: 14.5px; font-weight: 700; letter-spacing: -0.01em">Interoperability</h3>
-          <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #605d5d">Extending cross-chain architecture and partnerships so the ecosystem connects to external networks without widening its trust surface.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+			    const links = Array.from(document.querySelectorAll('[data-navlink]'));
+			    const sections = links.map((l) => document.querySelector(l.getAttribute('href')));
+			    const paint = () => {
+			      const y = window.scrollY + 150;
+			      let active = -1;
+			      sections.forEach((s, i) => { if (s && s.offsetTop <= y) active = i; });
+			      links.forEach((l, i) => { l.style.color = i === active ? '#f3f2f2' : '#9b9797'; });
+			    };
+			    this._paint = () => { if (this._raf) return; this._raf = requestAnimationFrame(() => { this._raf = null; paint(); }); };
+			    window.addEventListener('scroll', this._paint, { passive: true });
+			    paint();
 
-  <section id="contact" data-screen-label="Contact" style="scroll-margin-top: 80px; background: #201e1d; color: #f3f2f2; margin-top: 96px">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 80px 40px 72px">
-      <div style="display: grid; grid-template-columns: 156px minmax(0, 1fr); gap: 32px">
-        <h2 style="margin: 0; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #f3f2f2">05<br><span style="color: #7d7979">Contact</span></h2>
-        <div>
-          <h3 style="margin: 0 0 40px; font-size: clamp(30px, 4.6vw, 60px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.03; max-width: 22ch; text-wrap: pretty">Open to board and investor conversations.</h3>
-          <div data-rule="dark" data-pad="24px" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); border-top: 2px solid #444141">
-            <a href="mailto:hello@grantkee.com" style="color: #f3f2f2; padding: 24px 24px 24px 0; display: grid; gap: 7px; transition: background 180ms linear" style-hover="background: #2d2b2b">
-              <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #7d7979">Email</span>
-              <span style="font-size: 16.5px; font-weight: 600; letter-spacing: -0.01em">hello@grantkee.com</span>
-            </a>
-            <a href="https://github.com" style="color: #f3f2f2; padding: 24px 24px 24px 0; display: grid; gap: 7px; transition: background 180ms linear" style-hover="background: #2d2b2b">
-              <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #7d7979">GitHub</span>
-              <span style="font-size: 16.5px; font-weight: 600; letter-spacing: -0.01em">github.com/grantkee</span>
-            </a>
-            <a href="https://linkedin.com" style="color: #f3f2f2; padding: 24px 24px 24px 0; display: grid; gap: 7px; transition: background 180ms linear" style-hover="background: #2d2b2b">
-              <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #7d7979">LinkedIn</span>
-              <span style="font-size: 16.5px; font-weight: 600; letter-spacing: -0.01em">in/grantkee</span>
-            </a>
-          </div>
-          <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: baseline; border-top: 2px solid #444141; padding-top: 20px">
-            <span style="font-size: 11.5px; letter-spacing: 0.04em; color: #7d7979">Grant Kee — Chief Technology Officer, Telcoin Autonomous Operations</span>
-            <a href="#overview" style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #9b9797" style-hover="color: #f3f2f2">Back to top ↑</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;reveal&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;stickyRail&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;density&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;compact&quot;,&quot;standard&quot;,&quot;open&quot;],&quot;default&quot;:&quot;standard&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Layout&quot;}}">
-class Component extends DCLogic {
-  applyTweaks() {
-    const dens = this.props.density ?? 'standard';
-    const secPad = { compact: 48, standard: 72, open: 104 }[dens] ?? 72;
-    const rowPad = { compact: 22, standard: 30, open: 40 }[dens] ?? 30;
-    document.querySelectorAll('section[data-screen-label]').forEach((s) => {
-      if (s.id === 'contact') return;
-      s.style.paddingTop = secPad + 'px';
-    });
-    document.querySelectorAll('#work article').forEach((a) => { a.style.paddingTop = rowPad + 'px'; a.style.paddingBottom = rowPad + 'px'; });
-    const sticky = this.props.stickyRail ?? true;
-    document.querySelectorAll('section[data-screen-label] > div > h2').forEach((h) => {
-      h.style.position = sticky ? 'sticky' : 'static';
-    });
-  }
-  alignGrids() {
-    document.querySelectorAll('[data-rule]').forEach((g) => {
-      const color = g.dataset.rule === 'dark' ? '#444141' : '#d7d3d3';
-      const pad = g.dataset.pad || '24px';
-      const seen = new Set();
-      Array.from(g.children).forEach((k) => {
-        const top = Math.round(k.offsetTop);
-        const first = !seen.has(top);
-        seen.add(top);
-        k.style.borderLeft = first ? '0' : '2px solid ' + color;
-        k.style.paddingLeft = first ? '0px' : pad;
-      });
-    });
-  }
-  componentDidUpdate() { this.applyTweaks(); this.alignGrids(); }
-  componentDidMount() {
-    this.applyTweaks();
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches || (this.props.reveal ?? true) === false;
-    if (!reduce) {
-      const items = document.querySelectorAll('[data-reveal]');
-      items.forEach((el) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(12px)';
-        el.style.transition = 'opacity 560ms cubic-bezier(.22,.61,.36,1), transform 560ms cubic-bezier(.22,.61,.36,1)';
-      });
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          if (!e.isIntersecting) return;
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'none';
-          io.unobserve(e.target);
-        });
-      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
-      items.forEach((el) => io.observe(el));
-      this._io = io;
-    }
-
-    const links = Array.from(document.querySelectorAll('[data-navlink]'));
-    const sections = links.map((l) => document.querySelector(l.getAttribute('href')));
-    const paint = () => {
-      const y = window.scrollY + 150;
-      let active = -1;
-      sections.forEach((s, i) => { if (s && s.offsetTop <= y) active = i; });
-      links.forEach((l, i) => { l.style.color = i === active ? '#f3f2f2' : '#9b9797'; });
-    };
-    this._paint = () => { if (this._raf) return; this._raf = requestAnimationFrame(() => { this._raf = null; paint(); }); };
-    window.addEventListener('scroll', this._paint, { passive: true });
-    paint();
-
-    this.alignGrids();
-    this._resize = () => { if (this._rraf) return; this._rraf = requestAnimationFrame(() => { this._rraf = null; this.alignGrids(); }); };
-    window.addEventListener('resize', this._resize);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.alignGrids());
-  }
-  componentWillUnmount() {
-    if (this._io) this._io.disconnect();
-    if (this._paint) window.removeEventListener('scroll', this._paint);
-    if (this._resize) window.removeEventListener('resize', this._resize);
-  }
-  renderVals() { return {}; }
-}
-
-</script>
-</body>
+			    this.alignGrids();
+			    this._resize = () => { if (this._rraf) return; this._rraf = requestAnimationFrame(() => { this._rraf = null; this.alignGrids(); }); };
+			    window.addEventListener('resize', this._resize);
+			    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.alignGrids());
+			  }
+			  componentWillUnmount() {
+			    if (this._io) this._io.disconnect();
+			    if (this._paint) window.removeEventListener('scroll', this._paint);
+			    if (this._resize) window.removeEventListener('resize', this._resize);
+			  }
+			  renderVals() { return {}; }
+			}
+		</script>
+	</body>
 </html>

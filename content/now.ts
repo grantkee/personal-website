@@ -7,7 +7,7 @@ import type { Card } from './types';
 export const cards: Card[] = [
   {
     title: 'Production readiness',
-    body: 'Carrying the network from architecture through audit, remediation, and launch — where protocol decisions turn into operational ones.',
+    body: 'Carrying the network from architecture through audit, remediation, and launch - where protocol decisions turn into operational ones.',
   },
   {
     title: 'Engineering organization',
@@ -19,7 +19,7 @@ export const cards: Card[] = [
   },
   {
     title: 'Block explorer',
-    body: 'A node execution extension that reindexes chain data as blocks land, so the network is legible to developers and to anyone auditing it from outside.',
+    body: 'An execution extension on an observer node that reindexes chain data in real time as blocks land, so the network is legible to developers and to anyone auditing it from outside.',
     proof: { label: 'testnet explorer', href: 'https://telscan.io/' },
   },
   {

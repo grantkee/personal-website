@@ -1,8 +1,10 @@
 import type { Site } from '@/content/types';
 
 /**
- * A @graph of three linked nodes rather than three loose objects:
- * ProfilePage -> mainEntity -> Person -> worksFor -> Organization.
+ * A @graph of two linked nodes rather than two loose objects:
+ * ProfilePage -> mainEntity -> Person. The employers are inlined on the
+ * Person as `worksFor` and the Association as `memberOf`, so nothing here
+ * needs a third node to resolve against.
  *
  * The links are what make this resolve as one entity. `sameAs` is the signal
  * that ties this page to the GitHub, LinkedIn, X, and forum accounts; without
@@ -10,7 +12,6 @@ import type { Site } from '@/content/types';
  */
 export function buildJsonLd(site: Site) {
   const personId = `${site.url}/#person`;
-  const orgId = `${site.url}/#organization`;
 
   return {
     '@context': 'https://schema.org',
@@ -19,7 +20,7 @@ export function buildJsonLd(site: Site) {
         '@type': 'ProfilePage',
         '@id': `${site.url}/#profilepage`,
         url: `${site.url}/`,
-        name: `${site.name} — ${site.jobTitle}, ${site.organization}`,
+        name: `${site.name} - ${site.jobTitle}, ${site.organization}`,
         description: site.description,
         inLanguage: 'en',
         mainEntity: { '@id': personId },
@@ -34,17 +35,14 @@ export function buildJsonLd(site: Site) {
         image: `${site.url}/avatar.webp`,
         sameAs: site.sameAs,
         knowsAbout: site.knowsAbout,
-        worksFor: { '@id': orgId },
-      },
-      {
-        '@type': 'Organization',
-        '@id': orgId,
-        name: site.organization,
-        alternateName: site.organizationShort,
-        parentOrganization: {
+        worksFor: site.worksFor.map((org) => ({
           '@type': 'Organization',
-          name: site.parentOrganization,
-        },
+          name: org.name,
+          ...(org.parentOrganization
+            ? { parentOrganization: { '@type': 'Organization', name: org.parentOrganization } }
+            : {}),
+        })),
+        memberOf: { '@type': 'Organization', name: site.memberOf },
       },
     ],
   };
