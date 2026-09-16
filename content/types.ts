@@ -51,7 +51,6 @@ export interface MetaCell {
 export interface Hero {
   name: string;
   title: string;
-  indexLabel: string;
   lede: string;
   meta: MetaCell[];
   avatar: {

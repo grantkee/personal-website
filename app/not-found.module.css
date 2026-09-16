@@ -1,0 +1,18 @@
+.wrap {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0;
+}
+
+.label {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.heading {
+  margin-bottom: 28px;
+  max-width: 16ch;
+  text-wrap: pretty;
+}

@@ -1,8 +1,3 @@
-.contact {
-  margin-top: 96px;
-  padding-bottom: 72px;
-}
-
 .heading {
   margin-bottom: 40px;
   max-width: 22ch;
@@ -86,10 +81,6 @@
 }
 
 @media (max-width: 559px) {
-  .contact {
-    margin-top: 72px;
-  }
-
   .links {
     grid-template-columns: minmax(0, 1fr);
   }

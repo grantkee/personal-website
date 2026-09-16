@@ -1,0 +1,153 @@
+.nav {
+  position: fixed;
+  top: var(--nav-top);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: var(--ink);
+  padding: 0 20px 0 18px;
+  height: var(--nav-h);
+  max-width: calc(100vw - 32px);
+  box-shadow: 0 3px 10px rgb(45 43 43 / 16%);
+
+  /* The pill is always dark, whatever tone it floats over. */
+  --text: var(--ground);
+  --text-muted: var(--n-500);
+  --rule: var(--n-800);
+  --focus-ring: var(--ground);
+  color: var(--text);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: var(--nav-h);
+  padding-right: 20px;
+  border-right: 2px solid var(--rule);
+  color: var(--text);
+}
+
+.mark {
+  width: 6px;
+  height: 6px;
+  background: var(--text);
+  display: block;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+}
+
+.summary {
+  /* Hidden above md. Below it, this is the disclosure control -- and it is
+     native, so it carries its own aria-expanded and keyboard handling, and it
+     works with JavaScript disabled. */
+  display: none;
+  align-items: center;
+  gap: 9px;
+  height: var(--nav-h);
+  min-width: 44px;
+  cursor: pointer;
+  color: var(--text-muted);
+  list-style: none;
+  transition: color 180ms linear;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary:hover {
+  color: var(--text);
+}
+
+.chevron {
+  transition: transform 180ms linear;
+}
+
+.details[open] .chevron {
+  transform: rotate(180deg);
+}
+
+.panel {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.link {
+  color: var(--text-muted);
+  white-space: nowrap;
+  transition: color 180ms linear;
+}
+
+.link:hover {
+  color: var(--text);
+}
+
+/* Scroll-spy drives this attribute; the colour comes from CSS. Same visual as
+   the artboard's inline style repaint, except a screen reader now announces
+   which section the reader is in. */
+.link[aria-current='location'] {
+  color: var(--text);
+}
+
+/* --- desktop ------------------------------------------------------------
+   The details element stays closed at every width. Above md its content is
+   forced visible here rather than by opening it, which keeps the panel
+   visible with JavaScript disabled. Nav.tsx carries a scripted fallback for
+   engines without ::details-content. */
+@media (min-width: 768px) {
+  .details::details-content {
+    content-visibility: visible;
+    block-size: auto;
+  }
+}
+
+/* --- below md -----------------------------------------------------------
+   The pill becomes a disclosure bar. The panel is inline in DOM order rather
+   than a portal overlay, so no focus trap is needed: tabbing out of the last
+   link lands on the page beneath it, which is where the reader is going. */
+@media (max-width: 767px) {
+  .nav {
+    left: var(--gutter);
+    right: var(--gutter);
+    transform: none;
+    max-width: none;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .summary {
+    display: flex;
+  }
+
+  .details {
+    position: static;
+  }
+
+  .panel {
+    position: absolute;
+    top: calc(var(--nav-h) + 2px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--ink);
+    padding: 6px 18px 10px;
+    box-shadow: 0 3px 10px rgb(45 43 43 / 16%);
+  }
+
+  .link {
+    /* 44px tap target. */
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}

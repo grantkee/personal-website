@@ -2,6 +2,19 @@
   padding-top: var(--section-pad);
 }
 
+/* The contact section closes the page, so it gets air above it and a floor
+   below it that the stacked sections above do not need. */
+.footer {
+  margin-top: 96px;
+  padding-bottom: 72px;
+}
+
+@media (max-width: 559px) {
+  .footer {
+    margin-top: 72px;
+  }
+}
+
 .grid {
   display: grid;
   grid-template-columns: var(--rail) minmax(0, 1fr);

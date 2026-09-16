@@ -3,7 +3,6 @@ import type { Hero } from './types';
 export const hero: Hero = {
   name: 'Grant Kee',
   title: 'Chief Technology Officer — Telcoin Autonomous Operations',
-  indexLabel: '00 / Index',
 
   /* The best sentence in the corpus. Left verbatim from the artboard. */
   lede: 'A settlement layer secured by mobile network operators, a token migrated onto it, and the engineering organization that ships both.',

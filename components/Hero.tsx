@@ -1,13 +1,23 @@
 import Image from 'next/image';
 import type { Hero as HeroContent } from '@/content/types';
+import { ordinal } from '@/lib/format';
 import styles from './Hero.module.css';
 
-export function Hero({ hero }: { hero: HeroContent }) {
+interface HeroProps {
+  hero: HeroContent;
+  /** Array position of the overview section. Nothing stores its own number. */
+  index: number;
+  label: string;
+}
+
+export function Hero({ hero, index, label }: HeroProps) {
   return (
     <header id="overview" className={`tone-dark ${styles.hero}`}>
       <div className="shell">
         <div className={`${styles.indexRow} t-label-sm`}>
-          <span>{hero.indexLabel}</span>
+          <span>
+            {ordinal(index)} / {label}
+          </span>
           <span>{hero.title}</span>
         </div>
 

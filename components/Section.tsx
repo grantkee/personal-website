@@ -26,7 +26,12 @@ export function Section({
   return (
     <Tag
       id={id}
-      className={[styles.section, tone === 'dark' ? 'tone-dark' : '', className]
+      className={[
+        styles.section,
+        Tag === 'footer' ? styles.footer : '',
+        tone === 'dark' ? 'tone-dark' : '',
+        className,
+      ]
         .filter(Boolean)
         .join(' ')}
       aria-labelledby={`${id}-heading`}
