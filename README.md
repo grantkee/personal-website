@@ -213,8 +213,8 @@ corpus. Excluded from `tsconfig.json`, never imported, never shipped.
 `og.png` is committed rather than served from a file-based `opengraph-image` route because
 that route exports extensionless under `output: 'export'`, Pages then serves it as
 `application/octet-stream`, and scrapers refuse it. Re-run `make og` after any change to
-`site.name`, `site.jobTitle`, `site.organization`, or the Status cell in `content/hero.ts`;
-the footer labels are constants in the script, not imports. The source photos stay
+`site.name`, `site.domain`, `site.jobTitle`, `site.organization`, or the Status cell in
+`content/hero.ts`; the footer labels are constants in the script, not imports. The source photos stay
 untracked on purpose: the derived files are committed, so nothing in the build reaches for
 the originals.
 

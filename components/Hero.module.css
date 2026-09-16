@@ -27,17 +27,11 @@
 .avatar {
   width: 100%;
   height: auto;
-  /* Grayscale by default, matching the design system's rule for imagery. Full
-     colour is otherwise absent from this page, so an untreated colour portrait
-     would out-shout every section below it. Colour on hover is the page's one
-     moment of warmth, and it is what makes the grayscale read as deliberate
-     rather than as a broken image. */
+  /* Grayscale, matching the design system's rule for imagery. Colour is
+     otherwise absent from this page, so an untreated colour portrait would
+     out-shout every section below it. The shipped photo is already monochrome;
+     the filter stays so a future colour export cannot change that by accident. */
   filter: grayscale(1) contrast(1.08);
-  transition: filter 240ms linear;
-}
-
-.avatar:hover {
-  filter: none;
 }
 
 .name {
