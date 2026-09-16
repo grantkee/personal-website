@@ -28,7 +28,7 @@ export const cards: Card[] = [
     proof: [
       {
         label: 'ecosystem update from MWC 2025',
-        href: 'https://x.com/telcoin/status/1897692300165120002',
+        href: 'https://x.com/telcoin/status/1897692300165120002?t=65',
       },
       {
         label: 'digital cash demo at MWC 2025',
