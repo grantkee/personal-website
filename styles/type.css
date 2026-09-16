@@ -1,0 +1,173 @@
+/* ============================================================================
+   Type ramp — composable classes, each bundling size + weight + tracking +
+   leading. The split rule for this codebase:
+
+       type.css owns type.   *.module.css owns layout.
+
+   A copy retune touches this one global file. A layout change touches one
+   module. Nothing sets font-size in a module.
+
+   FLUID SIZES. Every ramp below pairs a rem term with a vw term. The artboard
+   used vw alone — which meant that under browser zoom, where the viewport
+   measured in CSS pixels shrinks, display sizes shrank by exactly as much as
+   the zoom magnified them. Net physical size: unchanged. A low-vision reader
+   zooming to 200% got larger body copy and headlines that did not move, which
+   is a WCAG 1.4.4 regression.
+
+   The rem term fixes it. Coefficients are tuned so each ramp reproduces the
+   artboard's size at 1240px (the design's max content width) to within a
+   pixel, and still hits the same clamp ceiling at 1440px.
+   ========================================================================= */
+
+/* --- display ------------------------------------------------------------ */
+.t-display-1 {                                   /* artboard: clamp(48,8vw,108) */
+  font-size: clamp(44px, 1.85rem + 5.6vw, 108px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+
+.t-display-2 {                                   /* artboard: clamp(30,4.6vw,60) */
+  font-size: clamp(30px, 1.07rem + 3.22vw, 60px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.03;
+}
+
+.t-stat {                                        /* artboard: clamp(26,3vw,36) */
+  font-size: clamp(26px, 0.7rem + 2.1vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+/* --- lede --------------------------------------------------------------- */
+.t-lede {                                        /* artboard: clamp(18,1.9vw,24) */
+  font-size: clamp(18px, 0.44rem + 1.33vw, 24px);
+  font-weight: 400;
+  letter-spacing: -0.014em;
+  line-height: 1.42;
+}
+
+.t-lede-sm {                                     /* artboard: clamp(17,1.7vw,21) */
+  font-size: clamp(17px, 0.4rem + 1.19vw, 21px);
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  line-height: 1.45;
+}
+
+.t-title {                                       /* artboard: clamp(21,2.1vw,28) */
+  font-size: clamp(21px, 0.49rem + 1.47vw, 28px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+}
+
+/* --- body --------------------------------------------------------------- */
+.t-body {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.t-body-strong {
+  font-size: 15.5px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.t-body-sm {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.t-meta {
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.t-card-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.t-contact-value {
+  font-size: 16.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+/* --- labels ------------------------------------------------------------- */
+.t-brand {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1;
+}
+
+.t-nav {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.t-colophon {
+  font-size: 11.5px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+}
+
+.t-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.t-label-row {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.t-index {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+}
+
+.t-label-sm {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.t-kicker {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.t-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}

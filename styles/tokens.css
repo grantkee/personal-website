@@ -1,0 +1,125 @@
+/* ============================================================================
+   Tokens — the Ledger artboard's values, promoted to custom properties.
+
+   BREAKPOINTS. Custom properties cannot be used inside an @media condition, so
+   these three numbers are written literally in every query in this codebase.
+   This comment is the canonical list. There are three, and only three:
+
+       lg   1024px   rail collapses below this
+       md    768px   nav becomes a <details> disclosure below this
+       sm    560px   ledger stacks below this
+
+   Queries are written desktop-first, as `@media (max-width: 1023px)`,
+   `(max-width: 767px)`, `(max-width: 559px)`. The artboard is the contract and
+   its values are the base; every query below is a documented deviation.
+
+   COLOR. The palette is pure monochrome on purpose. The design system this is
+   derived from carries an accent red (#ec3013); it appears zero times here and
+   must stay that way. That includes the focus ring, which the design system
+   draws in accent — see globals.css.
+   ========================================================================= */
+
+:root {
+  /* --- raw palette. Ink, ground, and one neutral ramp. Nothing else. ------ */
+  --ground: #f3f2f2;
+  --ink: #201e1d;
+  --n-900: #2d2b2b;
+  --n-800: #444141;
+  --n-700: #605d5d;
+  --n-600: #7d7979;
+  --n-500: #9b9797;
+  --n-300: #d7d3d3;
+
+  /* --- semantic aliases, light tone (the default) ------------------------
+     Components reference these, never the raw ramp. That is what lets the
+     dark hero and dark contact sections work without duplicating a single
+     rule, and it is where the three contrast fixes live. */
+  --surface: var(--ground);
+  --text: var(--ink);                 /* 14.86:1 */
+  --text-secondary: var(--n-800);     /*  9.04:1 */
+
+  /* Was #7d7979 at 3.85:1 — failed AA at the 10–11px sizes it is used at,
+     with no large-text exemption available. One step darker. */
+  --text-muted: var(--n-700);         /*  5.83:1 */
+
+  /* Was #9b9797 at 2.59:1 — failed everything. These numerals are ordinal
+     wayfinding, not decoration, so declaring them aria-hidden would not have
+     been honest. They now match --text-muted and stay differentiated from the
+     kickers beside them by weight and size (11px/700 against 10px/600). */
+  --text-index: var(--n-700);         /*  5.83:1 */
+
+  --rule: var(--n-300);               /* row dividers */
+  --rule-strong: var(--ink);          /* section boundaries */
+  --focus-ring: var(--ink);
+  --hover-fill: var(--n-300);
+  --tag-border: var(--n-300);
+
+  /* --- layout ------------------------------------------------------------ */
+  --maxw: 1240px;
+  --gutter: 40px;
+  --rail: 156px;          /* sticky section rail */
+  --ledger-col: 148px;    /* stat numeral column */
+  --gap: 32px;
+  --nav-h: 46px;
+  --nav-top: 20px;
+  --sticky-top: 92px;
+  --section-pad: 72px;
+
+  /* Every anchor target uses this. Because --nav-h and --nav-top shrink at md,
+     anchor offsets stay correct across breakpoints for free. */
+  --anchor-offset: calc(var(--nav-h) + var(--nav-top) + 14px);
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* --- dark tone -----------------------------------------------------------
+   Applied to the hero and the contact footer. Redefining the aliases here is
+   the whole mechanism: no component knows which tone it is rendering in. */
+.tone-dark {
+  --surface: var(--ink);
+  --text: var(--ground);              /* 14.86:1 */
+  --text-secondary: var(--n-300);     /* 11.19:1 */
+
+  /* Was #7d7979 at 3.86:1 on ink. One step lighter. */
+  --text-muted: var(--n-500);         /*  5.75:1 */
+  --text-index: var(--n-500);
+
+  --rule: var(--n-800);
+  --rule-strong: var(--n-800);
+  --focus-ring: var(--ground);
+  --hover-fill: var(--n-900);
+  --tag-border: var(--n-800);
+
+  background: var(--surface);
+  color: var(--text);
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --gutter: 32px;
+    --section-pad: 60px;
+    /* Rail collapses to a static inline label. A 156px rail holding a two-word
+       heading spends 23% of a 768px viewport on wayfinding; it only earns its
+       keep when the content column is wide enough to lose your place in. */
+    --rail: 0px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --gutter: 24px;
+    --gap: 24px;
+    --ledger-col: 120px;
+    --section-pad: 52px;
+    --nav-h: 44px;          /* 44px keeps the disclosure a legal tap target */
+    --nav-top: 14px;
+    --sticky-top: 76px;
+  }
+}
+
+@media (max-width: 559px) {
+  :root {
+    --gutter: 20px;
+    --section-pad: 44px;
+  }
+}

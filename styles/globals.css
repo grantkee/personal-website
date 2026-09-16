@@ -1,0 +1,156 @@
+@import './tokens.css';
+@import './type.css';
+
+/* ============================================================================
+   Globals — reset, page chrome, focus, links, and the reveal gate.
+   ========================================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* clip, NOT hidden. `overflow-x: hidden` forces `overflow-y: auto`, which
+     makes the element a scroll container -- and the four sticky rail headings
+     inside it then silently stop sticking. The artboard had this bug. */
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  background: var(--ground);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+dl,
+dd {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Every anchor target clears the fixed nav pill. --anchor-offset is derived
+   from --nav-h and --nav-top, both of which shrink at md, so this stays
+   correct across breakpoints without a second declaration. */
+[id] {
+  scroll-margin-top: var(--anchor-offset);
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--ground);
+}
+
+.tone-dark ::selection {
+  background: var(--ground);
+  color: var(--ink);
+}
+
+/* --- links ---------------------------------------------------------------
+   Links on this page are evidence, not navigation: each one attaches to the
+   claim it proves. `.link` is the evidence treatment -- a 2px underline, in
+   keeping with a system where every rule is 2px and never a hairline. */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.link {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 180ms linear, color 180ms linear;
+}
+
+.link:hover {
+  text-decoration-color: currentColor;
+  color: var(--text);
+}
+
+/* --- focus ---------------------------------------------------------------
+   The design system ships `:focus { outline: none }`. That is not ported: it
+   removes the ring for keyboard users on browsers that do not support
+   :focus-visible, and there is no upside. The system's ring is accent red,
+   which the monochrome rule bans, so the ring inverts with the tone instead. */
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* --- reveal gate ---------------------------------------------------------
+   The hiding rule is scoped to `.js-reveal`, which an inline script in <head>
+   adds to <html> before first paint. Without that gate, a JS failure or a
+   reader with JS disabled would leave every [data-reveal] element permanently
+   invisible on a static, SEO-critical page. The animation is an enhancement;
+   the content is not. */
+.js-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 560ms var(--ease), transform 560ms var(--ease);
+}
+
+.js-reveal [data-reveal][data-revealed] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Reduced motion is resolved here rather than in the observer, so the observer
+   keeps exactly one code path. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js-reveal [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- utilities ---------------------------------------------------------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.shell {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
