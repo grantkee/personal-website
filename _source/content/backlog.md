@@ -50,3 +50,6 @@ I want to expand on my portfolio as the CTO with a list of accomplishments and p
 	- Projects and competition constantly changing
 		- Axelar and LayerZero bridges for example
 	- ZK, agentic payments, stablecoins, validator security is always changing
+- Enhance existing open-source tools to ensure smart-contract deployments use multisig
+	- solve the problem of the developer leaving and having to export EOA private key
+	- contribute to upstream github safe-utils to support simulations
