@@ -142,6 +142,10 @@
     background: var(--ink);
     padding: 6px 18px 10px;
     box-shadow: 0 3px 10px rgb(45 43 43 / 16%);
+    /* The panel is the same ink as the hero it drops over, so the shadow gives
+       it no edge there. A 2px rule does, in either tone. */
+    border-top: 2px solid var(--rule);
+    border-bottom: 2px solid var(--rule);
   }
 
   .link {

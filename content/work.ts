@@ -58,7 +58,7 @@ export const items: WorkItem[] = [
     title: 'Made adversaries part of the process',
     lead: 'Owns vulnerability discovery across competitive research, third-party audits, internal review, and continuous monitoring.',
     detail:
-      'Ran a four-week open competition on Cantina with a $110,000 reward pool against the protocol and its contracts, and funded a dedicated researcher for the full duration alongside it. Audit and remediation cycles gate production: scope ships once its security milestone is met, and the schedule moves before the milestone does. Designed incident-response controls that sit behind an authority separate from deployment and are deliberately asymmetric — pausing is fast, restoring is not. Findings and fixes from the token upgrade are set out in a published report.',
+      'Ran a four-week open competition on Cantina with a $110,000 reward pool against the protocol and its contracts, and funded a dedicated researcher for the full duration alongside it. Audit and remediation cycles gate production: scope ships once its security milestone is met, and the schedule moves before the milestone does. Findings and fixes from the token upgrade are set out in a published report, and Hacken’s assessments are public too. Designed incident-response controls that sit behind an authority separate from deployment and are deliberately asymmetric — pausing is fast, restoring is not.',
     tags: ['Cantina', 'Spearbit', 'Trail of Bits', 'Hacken'],
     proof: [
       {
@@ -69,6 +69,7 @@ export const items: WorkItem[] = [
         label: 'a published report',
         href: 'https://github.com/Telcoin-Association/tel-v3/blob/main/audit/report-cantinacode-telcoin-V3-1025.pdf',
       },
+      { label: 'Hacken’s assessments', href: 'https://hacken.io/audits/telcoin/' },
     ],
   },
 

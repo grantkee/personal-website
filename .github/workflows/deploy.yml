@@ -1,0 +1,72 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never cancel a deploy that is already publishing.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build
+
+      # The custom domain lives in public/CNAME and has to survive the export.
+      # If it does not, Pages drops grantkee.com back to the *.github.io
+      # default on the next deploy and the site goes dark on the real domain.
+      - name: Assert CNAME survived the export
+        run: |
+          test -s out/CNAME || { echo "::error::out/CNAME is missing or empty"; exit 1; }
+          echo "CNAME -> $(cat out/CNAME)"
+
+      # metadataBase failing silently is the classic static-export bug: OG URLs
+      # come out relative and localhost:3000 ends up in the production sitemap.
+      - name: Assert no localhost leaked into the build
+        run: |
+          if grep -rl 'localhost' out/sitemap.xml out/index.html out/robots.txt 2>/dev/null; then
+            echo "::error::localhost leaked into the build -- check metadataBase"
+            exit 1
+          fi
+          echo "no localhost in sitemap, index, or robots"
+
+      - name: Assert .nojekyll survived the export
+        run: |
+          test -f out/.nojekyll || { echo "::error::out/.nojekyll missing -- Pages will drop _next/"; exit 1; }
+
+      # No static_site_generator: input. Setting it to "next" injects a
+      # basePath, and this site serves from the domain root.
+      - uses: actions/configure-pages@v6
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

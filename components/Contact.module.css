@@ -27,6 +27,13 @@
   padding-left: 0;
 }
 
+/* Cells that wrap onto a second row need a rule above them. Without it the
+   two rows read as one block with a gap, which in a design whose language is
+   a visible grid in 2px rules looks like a missing divider rather than air. */
+.link:nth-child(n + 4) {
+  border-top: 2px solid var(--rule);
+}
+
 .link:hover {
   background: var(--hover-fill);
 }

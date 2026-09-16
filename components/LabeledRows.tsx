@@ -5,7 +5,7 @@ export function LabeledRows({ intro, rows }: { intro: string; rows: readonly Lab
   return (
     <>
       <p className={`${styles.intro} t-lede-sm`} data-reveal>
-        {intro}
+        <span className={styles.introText}>{intro}</span>
       </p>
       <dl>
         {rows.map((row) => (
