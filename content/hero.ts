@@ -7,13 +7,6 @@ export const hero: Hero = {
   /* The best sentence in the corpus. Left verbatim from the artboard. */
   lede: 'A settlement layer secured by mobile network operators, a token migrated onto it, and the engineering organization that ships both.',
 
-  avatar: {
-    src: '/avatar.webp',
-    alt: 'Grant Kee',
-    width: 640,
-    height: 640,
-  },
-
   /* Four cells. Status leads: it answers the question the audience arrived
      with, and on a phone the first cell is the one that gets read. */
   meta: [

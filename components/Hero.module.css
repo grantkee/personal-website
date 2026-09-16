@@ -18,20 +18,10 @@
   padding: 40px 0 56px;
 }
 
-/* The artboard left this 156px cell empty. The avatar belongs in it: it is
-   already the column reserved for wayfinding, and nothing else competes. */
-.avatarCell {
-  align-self: start;
-}
-
-.avatar {
-  width: 100%;
-  height: auto;
-  /* Grayscale, matching the design system's rule for imagery. Colour is
-     otherwise absent from this page, so an untreated colour portrait would
-     out-shout every section below it. The shipped photo is already monochrome;
-     the filter stays so a future colour export cannot change that by accident. */
-  filter: grayscale(1) contrast(1.08);
+/* The rail cell stays empty, as the artboard left it. The grid is kept so the
+   name lines up with every section body below it. */
+.body {
+  grid-column: 2;
 }
 
 .name {
@@ -84,10 +74,8 @@
     gap: 14px;
   }
 
-  /* Rail is gone, so the avatar sits above the name at a fixed size rather
-     than filling a column that no longer exists. */
-  .avatarCell {
-    width: 112px;
+  .body {
+    grid-column: auto;
   }
 
   .main {

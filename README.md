@@ -205,7 +205,7 @@ corpus. Excluded from `tsconfig.json`, never imported, never shipped.
 
 | File | Source | How |
 | --- | --- | --- |
-| `public/avatar.webp` | photo cutout (untracked) | 640x640, alpha kept, sharp webp quality 82 |
+| `public/avatar.webp` | photo cutout (untracked) | 640x640, alpha kept, sharp webp quality 82; JSON-LD `Person.image` only, not rendered on the page |
 | `app/icon.png`, `app/apple-icon.png` | anime portrait (untracked) | 192 and 180 px; Next's file convention emits the `<link>` tags, `layout.tsx` names nothing |
 | `public/og.png` | `scripts/og.mjs` | `make og`; renders from `content/site.ts` through `next/og`, byte-deterministic |
 | `assets/fonts/` | Archivo static TTFs, OFL 1.1 | satori needs TTF; the site itself self-hosts Archivo through `next/font` |

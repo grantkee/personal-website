@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import type { Hero as HeroContent } from '@/content/types';
 import { ordinal } from '@/lib/format';
 import styles from './Hero.module.css';
@@ -22,18 +21,7 @@ export function Hero({ hero, index, label }: HeroProps) {
         </div>
 
         <div className={styles.main}>
-          <div className={styles.avatarCell}>
-            <Image
-              className={styles.avatar}
-              src={hero.avatar.src}
-              alt={hero.avatar.alt}
-              width={hero.avatar.width}
-              height={hero.avatar.height}
-              priority
-            />
-          </div>
-
-          <div>
+          <div className={styles.body}>
             <h1 className={`${styles.name} t-display-1`}>{hero.name}</h1>
 
             <dl className={styles.meta}>

@@ -53,12 +53,6 @@ export interface Hero {
   title: string;
   lede: string;
   meta: MetaCell[];
-  avatar: {
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-  };
 }
 
 /**
