@@ -202,8 +202,9 @@ corpus. Excluded from `tsconfig.json`, never imported, never shipped.
 ### Pinned versions
 
 Exact, no carets. This site is touched a few times a year and a surprise minor bump breaking
-`output: 'export'` costs more than the freshness is worth. ESLint is held at 9.x because that
-is the newest major `eslint-config-next` 15.5 accepts as a peer.
+`output: 'export'` costs more than the freshness is worth. ESLint is held at 9.x because
+`eslint-plugin-react`, `eslint-plugin-import` and `eslint-plugin-jsx-a11y` (pulled in by
+`eslint-config-next`) still cap their peer at 9.
 
 ---
 

@@ -5,10 +5,13 @@ import { useEffect, useState } from 'react';
 /**
  * Returns the id of the section the reader is currently in.
  *
- * Same rAF-throttled algorithm the canvas runtime used, with one change that
- * matters in React: setState only fires when the computed id actually changes.
- * The original repainted inline styles on every animation frame, which here
- * would be a re-render per frame for the whole nav.
+ * Same rAF-throttled algorithm the canvas runtime used, with two changes that
+ * matter in React. setState only fires when the computed id actually changes:
+ * the original repainted inline styles on every animation frame, which here
+ * would be a re-render per frame for the whole nav. And the initial pass is
+ * scheduled through the same rAF path rather than run synchronously, so the
+ * effect body never calls setState (react-hooks/set-state-in-effect); the first
+ * id resolves one frame after mount, before which activeId is null.
  */
 export function useScrollSpy(ids: readonly string[], offset = 150): string | null {
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -41,7 +44,7 @@ export function useScrollSpy(ids: readonly string[], offset = 150): string | nul
 
     window.addEventListener('scroll', schedule, { passive: true });
     window.addEventListener('resize', schedule, { passive: true });
-    compute();
+    schedule();
 
     return () => {
       if (frame) cancelAnimationFrame(frame);
