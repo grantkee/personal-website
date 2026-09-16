@@ -92,7 +92,8 @@ export interface LabeledRow {
 export interface Card {
   title: string;
   body: string;
-  proof?: Proof;
+  /** Rendered as a flush-left list under the body, in array order. */
+  proof?: Proof[];
 }
 
 export interface ContactLink {

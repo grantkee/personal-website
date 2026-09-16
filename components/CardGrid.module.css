@@ -40,8 +40,15 @@
   color: var(--text-muted);
 }
 
-.proof {
-  margin-top: 10px;
+/* Same flush-left wrapping list as the Source rows, so evidence reads the
+   same way in every section. */
+.proofs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
 }
 
 /* Six cards divide cleanly by three and by two, so this grid gets the full

@@ -13,7 +13,7 @@ export const rows: StatRow[] = [
     value: 'Q4 2026',
     explanation:
       'Targeted mainnet launch for Telcoin Network. The testnet has been live through coordinated fork upgrades, a faucet, and bridge integration, and is producing blocks today.',
-    proof: { label: 'producing blocks today', href: 'https://telscan.io/' },
+    proof: { label: 'producing blocks today', href: 'https://telscan.xyz/' },
   },
   {
     value: 'GSMA',

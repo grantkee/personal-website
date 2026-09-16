@@ -205,7 +205,6 @@ corpus. Excluded from `tsconfig.json`, never imported, never shipped.
 
 | File | Source | How |
 | --- | --- | --- |
-| `public/avatar.webp` | photo cutout (untracked) | 640x640, alpha kept, sharp webp quality 82; JSON-LD `Person.image` only, not rendered on the page |
 | `app/icon.png`, `app/apple-icon.png` | anime portrait (untracked) | 192 and 180 px; Next's file convention emits the `<link>` tags, `layout.tsx` names nothing |
 | `public/og.png` | `scripts/og.mjs` | `make og`; renders from `content/site.ts` through `next/og`, byte-deterministic |
 | `assets/fonts/` | Archivo static TTFs, OFL 1.1 | satori needs TTF; the site itself self-hosts Archivo through `next/font` |
@@ -214,9 +213,9 @@ corpus. Excluded from `tsconfig.json`, never imported, never shipped.
 that route exports extensionless under `output: 'export'`, Pages then serves it as
 `application/octet-stream`, and scrapers refuse it. Re-run `make og` after any change to
 `site.name`, `site.domain`, `site.jobTitle`, `site.organization`, or the Status cell in
-`content/hero.ts`; the footer labels are constants in the script, not imports. The source photos stay
+`content/hero.ts`; the footer labels are constants in the script, not imports. The source image stays
 untracked on purpose: the derived files are committed, so nothing in the build reaches for
-the originals.
+the original.
 
 ### Pinned versions
 
@@ -277,5 +276,5 @@ would not have been honest - they are ordinal wayfinding.
   competition and a published report), Hacken (their public audits page) and Trail of Bits
   (the Solana peg stability vault review, linked from the settlement article). Spearbit is
   named but has no public report. If one becomes publishable, add it to `work.ts`.
-- `telscan.io` is slow to first byte (~20s observed). If that persists, consider pointing the
+- `telscan.xyz` is slow to first byte (~20s observed). If that persists, consider pointing the
   "producing blocks today" proof at a faster target.

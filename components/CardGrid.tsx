@@ -9,11 +9,15 @@ export function CardGrid({ cards }: { cards: readonly Card[] }) {
           <h3 className={`${styles.title} t-card-title`}>{card.title}</h3>
           <p className={`${styles.body} t-body-sm`}>{card.body}</p>
           {card.proof ? (
-            <p className={`${styles.proof} t-body-sm`}>
-              <a className="link" href={card.proof.href}>
-                {card.proof.label}
-              </a>
-            </p>
+            <ul className={`${styles.proofs} t-body-sm`}>
+              {card.proof.map((proof) => (
+                <li key={proof.href}>
+                  <a className="link" href={proof.href}>
+                    {proof.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           ) : null}
         </article>
       ))}
