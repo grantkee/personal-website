@@ -11,12 +11,13 @@
 #   make preview            build, then serve out/ at localhost:3000
 #   make preview PORT=8080  same, on another port
 #   make phone              same, with the LAN URL for a real device
+#   make og                 regenerate public/og.png after a title change
 
 PORT ?= 3000
 
 .DEFAULT_GOAL := help
 
-.PHONY: help preview build serve dev phone check lint typecheck clean install reinstall
+.PHONY: help preview build serve dev phone check og lint typecheck clean install reinstall
 
 help: ## Show this help
 	@echo ""
@@ -79,6 +80,13 @@ check: lint typecheck build ## Everything CI runs, in the same order
 	@echo ""
 	@echo "  Ready to push."
 	@echo ""
+
+# content/site.ts is imported by a .mjs from a package without "type": "module",
+# so Node warns while it detects the module syntax. The flag silences only that
+# warning; setting "type": "module" would change how every .js in the repo is
+# parsed, which is a larger change than one warning is worth.
+og: node_modules ## Regenerate public/og.png from content/site.ts
+	@node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/og.mjs
 
 lint: node_modules ## eslint
 	@npm run lint

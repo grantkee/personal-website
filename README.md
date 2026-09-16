@@ -89,7 +89,7 @@ All copy is typed data under `content/`. No JSX, no markup in strings.
 
 | File | Holds |
 | --- | --- |
-| `site.ts` | Domain, titles, `sameAs` links, JSON-LD inputs |
+| `site.ts` | Domain, titles, `sameAs` links, JSON-LD inputs, structured-data employers |
 | `sections.ts` | Section order - **this drives numbering and the nav** |
 | `hero.ts` | Name, title, lede, the four meta cells |
 | `numbers.ts` | The seven ledger rows |
@@ -200,6 +200,23 @@ three of its behaviours were reimplemented:
 
 Reference material: the original artboard, the design system token sheet, and the raw content
 corpus. Excluded from `tsconfig.json`, never imported, never shipped.
+
+### Generated assets
+
+| File | Source | How |
+| --- | --- | --- |
+| `public/avatar.webp` | photo cutout (untracked) | 640x640, alpha kept, sharp webp quality 82 |
+| `app/icon.png`, `app/apple-icon.png` | anime portrait (untracked) | 192 and 180 px; Next's file convention emits the `<link>` tags, `layout.tsx` names nothing |
+| `public/og.png` | `scripts/og.mjs` | `make og`; renders from `content/site.ts` through `next/og`, byte-deterministic |
+| `assets/fonts/` | Archivo static TTFs, OFL 1.1 | satori needs TTF; the site itself self-hosts Archivo through `next/font` |
+
+`og.png` is committed rather than served from a file-based `opengraph-image` route because
+that route exports extensionless under `output: 'export'`, Pages then serves it as
+`application/octet-stream`, and scrapers refuse it. Re-run `make og` after any change to
+`site.name`, `site.jobTitle`, `site.organization`, or the Status cell in `content/hero.ts`;
+the footer labels are constants in the script, not imports. The source photos stay
+untracked on purpose: the derived files are committed, so nothing in the build reaches for
+the originals.
 
 ### Pinned versions
 
