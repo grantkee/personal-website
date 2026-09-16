@@ -7,13 +7,18 @@ One long-scroll page, six sections, no client-side routing. Two client component
 whole tree (`Nav`, `RevealObserver`); everything else renders to static HTML at build time.
 
 ```
-npm install
-npm run build      # writes out/
-npm run serve      # serves out/ -- always verify against this, never `next dev`
+make preview       # build, then serve out/ at localhost:3000
+make check         # lint, typecheck, build, and the three deploy assertions
+make phone         # same as preview, on the LAN, for a real device
+make               # list every target
 ```
 
-`next dev` and the exported build differ in exactly the places that cause problems here:
-metadata routes, `metadataBase`, and anything that depends on the file layout Pages sees.
+`make preview` serves `out/`, which is literally what GitHub Pages publishes. Use it for
+anything you want to trust. `make dev` runs `next dev` and is for fast copy iteration only —
+the two differ in metadata routes, `metadataBase`, and anything depending on the file layout
+Pages sees, which is exactly where this project's bugs have turned up.
+
+Override the port anywhere with `PORT=8080`.
 
 ---
 
@@ -207,7 +212,7 @@ is the newest major `eslint-config-next` 15.5 accepts as a peer.
 Everything runs against the built `out/`, served statically — never `next dev`.
 
 ```
-npm run build && npm run serve
+make preview
 ```
 
 Checked before the first deploy, and worth repeating after content changes:
@@ -226,8 +231,8 @@ Checked before the first deploy, and worth repeating after content changes:
 - JSON-LD through validator.schema.org and the Rich Results Test
 - After deploy: LinkedIn Post Inspector and the X Card Validator. Both cache aggressively,
   so get it right before sharing the link anywhere.
-- A real phone on the LAN (`npx serve out --host`). Emulators lie about iOS Safari viewport
-  units and about Archivo at 10px with 0.2em tracking, which is a lot of this design's text.
+- A real phone on the LAN (`make phone`). Emulators lie about iOS Safari viewport units and
+  about Archivo at 10px with 0.2em tracking, which is a lot of this design's text.
 
 ### Contrast
 
