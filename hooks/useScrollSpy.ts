@@ -34,6 +34,14 @@ export function useScrollSpy(ids: readonly string[], offset = 150): string | nul
         if (el && el.offsetTop <= threshold) current = id;
       }
 
+      // A last section shorter than the viewport minus `offset` can never
+      // cross the threshold, so the page bottom counts as that section. The
+      // 1px slack absorbs fractional scroll positions under zoom.
+      const { scrollHeight } = document.documentElement;
+      const atBottom = window.innerHeight + window.scrollY >= scrollHeight - 1;
+      const last = sectionIds[sectionIds.length - 1];
+      if (atBottom && last && document.getElementById(last)) current = last;
+
       setActiveId((previous) => (previous === current ? previous : current));
     };
 
